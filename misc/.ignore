@@ -1,0 +1,17 @@
+output/
+bench/
+bin/
+build/
+.certs/
+.circleci/
+coverage/
+docs/
+envs/
+fonts/
+.git/
+.idea/
+integration_tests/
+log/
+node_modules/
+public/
+tmp/

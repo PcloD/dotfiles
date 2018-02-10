@@ -1,0 +1,34 @@
+alias grep="grep --color=auto"
+alias ll="ls -la"
+alias tmuxx="tmux attach -t tmux || tmux new -s tmux"
+alias tmuxa="tmux attach -t "
+alias tmuxl="tmux list-sessions"
+alias ag="ag --path-to-ignore ~/.ignore"
+alias cr="cargo run"
+alias cb="cargo build"
+alias cbr="cargo build --release"
+alias sz="source ~/.zshrc"
+alias ez="vim ~/.zshrc"
+
+eval $(thefuck --alias)
+
+alias gs="git status"
+alias gdt="git difftool"
+alias ga="git add ."
+alias gc="git commit"
+alias gpush="git push"
+alias gpull="git pull"
+
+toggle_repeat() {
+  if [[ -z "${XSET_R_STATE}" ]]; then
+    XSET_R_STATE="ON"
+    xset r on
+  elif [[ "$XSET_R_STATE" == "OFF" ]]; then
+    XSET_R_STATE="ON"
+    xset r on
+  else
+    XSET_R_STATE="OFF"
+    xset r off
+  fi
+}
+
