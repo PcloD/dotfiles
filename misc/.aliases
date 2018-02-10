@@ -1,5 +1,6 @@
 alias grep="grep --color=auto"
 alias ll="ls -la"
+alias links="find . -maxdepth 1 -type l -ls" 
 alias tmuxx="tmux attach -t tmux || tmux new -s tmux"
 alias tmuxa="tmux attach -t "
 alias tmuxl="tmux list-sessions"
