@@ -14,6 +14,6 @@
    Use `sudo ln -s` to link `autoload`, `colors`, and `init.vim` into `~/.config/nvim`
 
    You should wind up with these three symlinks:
-   `~/.config/nvim/autoload`
-   `~/.config/nvim/colors`
-   `~/.config/nvim/init.vim`
+   * `~/.config/nvim/autoload`
+   * `~/.config/nvim/colors`
+   * `~/.config/nvim/init.vim`
