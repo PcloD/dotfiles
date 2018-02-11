@@ -54,7 +54,7 @@ function! plugins#init() abort
   \ 'active': {
   \   'left':  [ [ 'mode', 'paste'],
   \              [ 'linter_errors', 'linter_warnings', 'linter_ok' ],
-  \              [ 'readonly', 'relativepath', 'modified' ]],
+  \              [ 'gitbranch', 'readonly', 'relativepath', 'modified' ]],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ]],
   \ },
@@ -68,6 +68,7 @@ function! plugins#init() abort
   \  'linter_errors': 'lightline#ale#errors',
   \  'linter_ok': 'lightline#ale#ok',
   \  'buffers': 'lightline#bufferline#buffers',
+  \  'gitbranch': 'fugitive#head',
   \ }
 
   let g:lightline.component_type = {

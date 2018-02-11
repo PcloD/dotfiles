@@ -8,7 +8,13 @@ function! mappings#init() abort
   nnoremap <Leader>ev :e ~/.config/nvim<CR>
 
   " source .vimrc
-  nnoremap <Leader>sv :so $MYVIMRC<CR>
+  nnoremap <Leader>sv :call ReloadConfigs()<CR>:so ~/.config/nvim/init.vim<CR>
+
+  function! ReloadConfigs()
+    so ~/.config/nvim/autoload/mappings.vim
+    so ~/.config/nvim/autoload/plugins.vim
+    so ~/.config/nvim/autoload/settings.vim
+  endfunction
 
   " nerdtree
   nnoremap <F2> :NERDTreeToggle<CR>
@@ -63,7 +69,7 @@ function! mappings#init() abort
   nnoremap <Leader>l :set list!<CR>
   nnoremap <Leader>x :redraw!<CR>
   nnoremap <Leader>a :Find 
-  nnoremap <Leader>% :wa<CR>:make!<CR>
+  nnoremap <F5> :wa<CR>:make!<CR>
   " show only this file (close others)
   nnoremap <Leader>o <C-W>o<CR>
   " save all

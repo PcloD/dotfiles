@@ -14,4 +14,3 @@ call settings#init()
 
 "~/.config/autoload/mappings.vim
 call mappings#init()
-
