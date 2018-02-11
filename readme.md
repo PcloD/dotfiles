@@ -4,6 +4,8 @@ OK, enough of that. Obviously, this setup is specific to me and my personal work
 
 They are in a constant state of change. I doubt I go 2-3 days without tweaking some aspect of them. I add some new trick or plugin I see on line. Stuff I don't use gets deleted. Some of them need more work than others. Creative criticism and suggestions are welcome.
 
+One amazing thing about this config is that I use the exact same setup on Ubuntu at home and Macos at work. The only different file is my `.gitconfig` which uses a different email address. But I broke the rest of the config out into a `.gittools` file that can be included by both versions. I guess I could have done the opposite - include a `.gitidentity` file that only contains the email address. A future improvement!
+
 I'm currently using `zsh` as my shell. This is the most recent change, and I'm really loving it. Wish I had switched years ago. I'm still pretty dependent on `oh-my-zsh` for a lot of functionality. I'd like to eventually see if I can understand enough of `zsh` itself to do without `oh-my-zsh`. Or maybe try `antigen`. But still a noob.
 
 I use `tmux` for terminal tabs and splits rather than using the built-in terminal tabs. And of course for session management. `vim-tmux-navigator` makes navigating between `vim` splits and `tmux` splits a breeze. My `.tmux.conf` needs the most work out of any of the files here. I set it up months ago and really haven't needed to touch it much since.
