@@ -1,8 +1,8 @@
 0. Dependencies:
-   neovim   https://neovim.io/
-   minpac:  https://github.com/k-takata/minpac
-   ripgrep: https://github.com/BurntSushi/ripgrep
-   fzf:     https://github.com/junegunn/fzf
+   * neovim   https://neovim.io/
+   * minpac:  https://github.com/k-takata/minpac
+   * ripgrep: https://github.com/BurntSushi/ripgrep
+   * fzf:     https://github.com/junegunn/fzf
 
 1. Create spellfile: `~/Dropbox/vimspell/en.utf-8.add`.
    Or use another location. Change location in `autoload/mappings.vim`.
