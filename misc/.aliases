@@ -1,4 +1,3 @@
-alias grep="grep --color=auto"
 alias ll="ls -la"
 alias links="find . -maxdepth 1 -type l -ls" 
 alias tmuxx="tmux attach -t tmux || tmux new -s tmux"
@@ -11,13 +10,15 @@ alias cbr="cargo build --release"
 alias sz="source ~/.zshrc"
 alias ez="vim ~/.zshrc"
 
-eval $(thefuck --alias)
+alias tmuxx="tmux attach -t main || tmux new -s main"
 
 alias gs="git status"
 alias gdt="git difftool"
+alias gmt="git mergetool"
 alias ga="git add ."
-alias gc="git commit"
+alias gc="git commit -m "
 alias gpush="git push"
+alias gpushf="git push --force"
 alias gpull="git pull"
 
 toggle_repeat() {

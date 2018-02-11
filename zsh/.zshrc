@@ -35,6 +35,7 @@ export PATH="/snap/bin:$PATH"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.weblaunchers ] && source ~/.weblaunchers
+[ -f ~/.notarize_aliases ] && source ~/.notarize_aliases
 
 eval $(thefuck --alias)
 

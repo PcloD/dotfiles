@@ -55,8 +55,7 @@ function! plugins#init() abort
   \   'left':  [ [ 'mode', 'paste'],
   \              [ 'linter_errors', 'linter_warnings', 'linter_ok' ],
   \              [ 'gitbranch', 'readonly', 'relativepath', 'modified' ]],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ]],
+  \   'right': [ [ 'gitbranch' ]],
   \ },
   \ 'tabline': {
   \   'left':  [ [ 'buffers'] ],
