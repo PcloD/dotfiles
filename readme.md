@@ -4,7 +4,7 @@ OK, enough of that. Obviously, this setup is specific to me and my personal work
 
 They are in a constant state of change. I doubt I go 2-3 days without tweaking some aspect of them. I add some new trick or plugin I see on line. Stuff I don't use gets deleted. Some of them need more work than others. Creative criticism and suggestions are welcome.
 
-One amazing thing about this config is that I use the exact same setup on Ubuntu at home and Macos at work. The only different file is my `.gitconfig` which uses a different email address. But I broke the rest of the config out into a `.gittools` file that can be included by both versions. I guess I could have done the opposite - include a `.gitidentity` file that only contains the email address. A future improvement!
+One amazing thing about this config is that I use the exact same setup on Ubuntu at home and Macos at work. The only difference would be that my `.gitconfig` file uses a different email address. So I removed the `[user]` section from `.gitconfig` and included that info in a `.gitidentity` file that can differ on different machines. All else remains the same.
 
 I'm currently using `zsh` as my shell. This is the most recent change, and I'm really loving it. Wish I had switched years ago. I'm still pretty dependent on `oh-my-zsh` for a lot of functionality. I'd like to eventually see if I can understand enough of `zsh` itself to do without `oh-my-zsh`. Or maybe try `antigen`. But still a noob.
 
