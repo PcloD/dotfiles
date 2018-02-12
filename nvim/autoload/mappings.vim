@@ -37,6 +37,8 @@ function! mappings#init() abort
 
   " fzf 
   nnoremap <Leader>f :Files<CR>
+  nnoremap <Leader>a :Find 
+  nnoremap <Leader>F :FindCurrent<CR>
   nnoremap <Leader>b :Buffers<CR>
 
   " git
@@ -61,7 +63,6 @@ function! mappings#init() abort
   " show invisible chars
   nnoremap <Leader>l :set list!<CR>
   nnoremap <Leader>x :redraw!<CR>
-  nnoremap <Leader>a :Find 
   nnoremap <F5> :wa<CR>:make!<CR>
   " show only this file (close others)
   nnoremap <Leader>o <C-W>o<CR>
