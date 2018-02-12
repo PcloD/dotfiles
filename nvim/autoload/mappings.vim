@@ -33,7 +33,7 @@ function! mappings#init() abort
   nnoremap <Leader>gu :nunmap j<CR>:nunmap k<CR>
 
   " global replace template
-  nnoremap <Leader>F :%s//g<Left><Left>
+  nnoremap <Leader>r :%s//g<Left><Left>
 
   " fzf 
   nnoremap <Leader>f :Files<CR>
@@ -52,13 +52,6 @@ function! mappings#init() abort
   nmap <Leader>gr <Plug>GitGutterUndoHunk
   " git unstage file
   nnoremap <Leader>gu :Git reset HEAD %<CR>
-
-  " rust
-  nnoremap <Leader>rb :wa<CR>:! cargo build<CR>
-  nnoremap <Leader>rr :wa<CR>:! cargo run<CR>
-  nnoremap <Leader>rt :wa<CR>:! cargo test<CR>
-  nnoremap <Leader>rl :wa<CR>:! cargo build --release<CR>
-  nnoremap <Leader>rc :wa<CR>:! cargo clean<CR>
 
   " misc
   " quit all
