@@ -18,3 +18,4 @@ Todos:
 * Clean up `.tmux.conf`.
 * Learn enough about `zsh` to not depend on `oh-my-zsh`.
 * Look into other syntax management / highlighting solutions in `vim`.
+* Implement ctags
