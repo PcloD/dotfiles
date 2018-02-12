@@ -45,4 +45,6 @@ bindkey '^P' up-history
 bindkey '^N' down-history
 export KEYTIMEOUT=1
 
+export PGDATA="/usr/local/pgsql/data"
+
 source .prompt.zsh
