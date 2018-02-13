@@ -47,4 +47,4 @@ export KEYTIMEOUT=1
 
 export PGDATA="/usr/local/pgsql/data"
 
-source .prompt.zsh
+source ~/.prompt.zsh

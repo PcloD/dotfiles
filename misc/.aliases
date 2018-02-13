@@ -12,14 +12,9 @@ alias ez="vim ~/.zshrc"
 
 alias tmuxx="tmux attach -t main || tmux new -s main"
 
-alias gs="git status"
 alias gdt="git difftool"
-alias gmt="git mergetool"
-alias ga="git add ."
 alias gc="git commit -m "
-alias gpush="git push"
 alias gpushf="git push --force"
-alias gpull="git pull"
 
 toggle_repeat() {
   if [[ -z "${XSET_R_STATE}" ]]; then
