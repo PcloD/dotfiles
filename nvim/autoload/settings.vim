@@ -6,6 +6,7 @@ function! settings#init() abort
   set autoread
   set background=dark
   set backspace=indent,eol,start
+  set clipboard=unnamedplus
   set colorcolumn=120
   set exrc
   set hlsearch
