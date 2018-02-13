@@ -30,7 +30,7 @@ function! mappings#init() abort
   nnoremap j gj
   nnoremap k gk
   nnoremap <Leader>gg :nnoremap j gj<CR>:nnoremap k gk<CR>
-  nnoremap <Leader>gu :nunmap j<CR>:nunmap k<CR>
+  nnoremap <Leader>gx :nunmap j<CR>:nunmap k<CR>
 
   " global replace template
   nnoremap <Leader>r :%s//g<Left><Left>
