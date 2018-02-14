@@ -17,11 +17,14 @@ function! settings#init() abort
   set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:✗,space:·
   set mouse=a
   set nobackup
+  set expandtab
   set noswapfile
   set noro
   set noshowmode
   set number
   set ruler
+  set shiftwidth=2
+  set softtabstop=2
   set spelllang=en_us
   set spellfile=~/Dropbox/vimspell/en.utf-8.add
   set splitright
