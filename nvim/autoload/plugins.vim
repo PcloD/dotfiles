@@ -36,10 +36,10 @@ function! plugins#init() abort
   " fzf/ripgrep
   " files
   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
-  " words
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
-  " word under cursor
-  command! -bang -nargs=* FindCurrent call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --glob "!.git/*" --color "always" '.shellescape(expand('<cword>')), 1, <bang>0)
+  " words: allow wildcards and regex stuff here
+  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --ignore-case --hidden --follow --color "always" '.shellescape(<q-args>), 1, <bang>0)
+  " word under cursor: literal (--fixed-strings) for this
+  command! -bang -nargs=* FindCurrent call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" '.shellescape(expand('<cword>')), 1, <bang>0)
 
   " quick-scope
   let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
