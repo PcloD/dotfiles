@@ -9,6 +9,7 @@ alias cb="cargo build"
 alias cbr="cargo build --release"
 alias sz="source ~/.zshrc"
 alias ez="vim ~/.zshrc"
+alias lp="fzf --preview='cat {}' --preview-window=right:70%:wrap +x"
 
 alias tmuxx="tmux attach -t main || tmux new -s main"
 
