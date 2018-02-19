@@ -21,6 +21,7 @@ alias vi="nvim"
 
 # FZF
 export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
+alias fzp="fzf --preview='cat {}'"
 
 # nvm stuff
 export NVM_DIR="$HOME/.nvm"
