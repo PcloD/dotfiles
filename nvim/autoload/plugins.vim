@@ -22,6 +22,7 @@ function! plugins#init() abort
   call minpac#add('maximbaz/lightline-ale')
   call minpac#add('unblevable/quick-scope')
   call minpac#add('mgee/lightline-bufferline')
+  call minpac#add('morhetz/gruvbox')
 
   " Plugin settings ================
   command! Mpup call minpac#update()

@@ -7,6 +7,11 @@ function! mappings#init() abort
   " edit .vimrc etc.
   nnoremap <Leader>ev :e ~/.config/nvim<CR>
 
+  " edit mappings, plugins, settings
+  nnoremap <Leader>vm :e ~/.config/nvim/autoload/mappings.vim<CR>
+  nnoremap <Leader>vp :e ~/.config/nvim/autoload/plugins.vim<CR>
+  nnoremap <Leader>vs :e ~/.config/nvim/autoload/settings.vim<CR>
+
   " source .vimrc
   nnoremap <Leader>sv :call ReloadConfigs()<CR>:so ~/.config/nvim/init.vim<CR>
 
@@ -91,6 +96,7 @@ function! mappings#init() abort
   " next/prev buffer
   nnoremap <S-Tab> :bprev<CR>
   nnoremap <Tab> :bnext<CR>
+  nnoremap <BS> <C-^>
 
   " delete buffer
   nnoremap <Leader>d :bd<CR>

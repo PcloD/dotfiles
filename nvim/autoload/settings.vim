@@ -1,7 +1,9 @@
 function! settings#init() abort
   filetype plugin on
   syntax on
-  colorscheme dante
+  let g:gruvbox_contrast_dark="hard"
+  let g:gruvbox_contrast_light="hard"
+  colorscheme gruvbox
   set autoindent
   set autoread
   set background=dark
