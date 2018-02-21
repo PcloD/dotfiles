@@ -4,6 +4,7 @@ build/
 .certs/
 .circleci/
 coverage/
+dist/
 docs/
 envs/
 fonts/

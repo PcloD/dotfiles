@@ -20,6 +20,12 @@ function! mappings#init() abort
   nnoremap <F2> :NERDTreeToggle<CR>
   nnoremap <F3> :NERDTreeFind<CR>
 
+  " npm
+  nnoremap <Leader>n :!npm run 
+
+  " chrome
+  nnoremap <Leader>ch :!google-chrome 
+
   " reload
   nnoremap <Leader>R :e!<CR>
 
