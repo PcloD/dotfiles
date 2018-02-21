@@ -19,6 +19,10 @@ export EDITOR=nvim
 alias vim="nvim"
 alias vi="nvim"
 
+# FZF
+export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
+alias fzp="fzf --preview='cat {}'"
+
 # nvm stuff
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -26,9 +30,6 @@ export NVM_DIR="$HOME/.nvm"
 # rbenv stuff
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
-
-# fzf stuff
-export FZF_DEFAULT_COMMAND='ag -g "" --path-to-ignore ~/.ignore'
 
 # oops, zsh doesn't seem to know about snaps
 export PATH="/snap/bin:$PATH"

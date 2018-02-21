@@ -26,11 +26,17 @@ function! mappings#init() abort
   " chrome
   nnoremap <Leader>ch :!google-chrome 
 
+  " turn a snake into a camel
+  nnoremap <Leader>_ 0f_x~
+
+  " turn a function into a closure
+  nnoremap <Leader>( 0f(i = f{i=> 
+
   " reload
   nnoremap <Leader>R :e!<CR>
 
   " immersive mode
-  nnoremap <Leader>w :Goyo<CR>
+  nnoremap <Leader>gy :Goyo<CR>
 
   " move by one line
   nnoremap j gj
