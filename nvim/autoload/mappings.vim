@@ -123,4 +123,14 @@ function! mappings#init() abort
   nmap <Leader>8 <Plug>lightline#bufferline#go(8)
   nmap <Leader>9 <Plug>lightline#bufferline#go(9)
   nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+
+  augroup filetype_markdown
+    autocmd!
+    autocmd BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+    " mark. search 2 chars. [] becomes [*]. [* becomes [. else keep same.
+    " return to mark, clear highlight, save file.
+    " TODO: make into a function/command
+    autocmd FileType markdown nnoremap <buffer> <Space> mq:s/../\= submatch(0) == '[]' ? '[*]' : submatch(0) == '[*' ? '[' : submatch(0)/g<CR>`q:nohlsearch<CR>:w<CR>
+  augroup END
+
 endfunction
