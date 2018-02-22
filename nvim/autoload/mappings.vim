@@ -28,6 +28,13 @@ function! mappings#init() abort
   " npm
   nnoremap <Leader>n :!npm run 
 
+  " increment/decrement numbers
+  nnoremap + <C-a>
+  nnoremap - <C-x>
+
+  " redo
+  nnoremap U <C-r>
+
   " chrome
   nnoremap <Leader>ch :!google-chrome 
 
@@ -49,8 +56,10 @@ function! mappings#init() abort
   nnoremap <Leader>gg :nnoremap j gj<CR>:nnoremap k gk<CR>
   nnoremap <Leader>gx :nunmap j<CR>:nunmap k<CR>
 
-  " global replace template
-  nnoremap <Leader>r :%s//g<Left><Left>
+  " find and replace word under cursor
+  nnoremap <Leader>rw :%s/<c-r><c-w>//g<left><left>
+  " find and replace word
+  nnoremap <Leader>rr :%s//g<Left><Left>
 
   " fzf 
   nnoremap <Leader>f :Files<CR>

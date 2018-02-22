@@ -4,7 +4,6 @@ function! plugins#init() abort
   call minpac#add('k-takata/minpac', {'type': 'opt'})
   call minpac#add('airblade/vim-gitgutter')
   call minpac#add('junegunn/goyo.vim')
-  call minpac#add('itchyny/lightline.vim')
   call minpac#add('junegunn/limelight.vim')
   call minpac#add('scrooloose/nerdcommenter')
   call minpac#add('scrooloose/nerdtree')
@@ -19,9 +18,10 @@ function! plugins#init() abort
   call minpac#add('yggdroot/indentLine')
   call minpac#add('sheerun/vim-polyglot')
   call minpac#add('w0rp/ale')
+  call minpac#add('itchyny/lightline.vim')
   call minpac#add('maximbaz/lightline-ale')
-  call minpac#add('unblevable/quick-scope')
   call minpac#add('mgee/lightline-bufferline')
+  call minpac#add('unblevable/quick-scope')
   call minpac#add('morhetz/gruvbox')
 
   " Plugin settings ================
@@ -52,6 +52,7 @@ function! plugins#init() abort
 
   " lightline / ALE / buffer
   let g:lightline = {
+  \ 'colorscheme': 'gruvbox',
   \ 'active': {
   \   'left':  [ [ 'mode', 'paste'],
   \              [ 'linter_errors', 'linter_warnings', 'linter_ok' ],
