@@ -94,6 +94,8 @@ function! mappings#init() abort
   nnoremap <Leader>o <C-W>o<CR>
   " save all
   nnoremap <Leader>sa ggVG
+  " show current column
+  nnoremap <Leader>co :set cursorcolumn!<CR>
 
   " 0 is easier. ^ is more useful.
   nnoremap 0 ^

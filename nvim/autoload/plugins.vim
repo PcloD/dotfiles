@@ -15,14 +15,13 @@ function! plugins#init() abort
   call minpac#add('junegunn/fzf.vim')
   call minpac#add('tpope/vim-fugitive')
   call minpac#add('tpope/vim-repeat')
-  call minpac#add('yggdroot/indentLine')
   call minpac#add('sheerun/vim-polyglot')
   call minpac#add('w0rp/ale')
   call minpac#add('itchyny/lightline.vim')
   call minpac#add('maximbaz/lightline-ale')
   call minpac#add('mgee/lightline-bufferline')
-  call minpac#add('unblevable/quick-scope')
   call minpac#add('morhetz/gruvbox')
+  call minpac#add('mhinz/vim-startify')
 
   " Plugin settings ================
   command! Mpup call minpac#update()
