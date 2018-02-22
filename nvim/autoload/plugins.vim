@@ -21,7 +21,6 @@ function! plugins#init() abort
   call minpac#add('maximbaz/lightline-ale')
   call minpac#add('mgee/lightline-bufferline')
   call minpac#add('morhetz/gruvbox')
-  call minpac#add('mhinz/vim-startify')
 
   " Plugin settings ================
   command! Mpup call minpac#update()
