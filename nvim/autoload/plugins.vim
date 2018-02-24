@@ -27,10 +27,11 @@ function! plugins#init() abort
   command! Mpclean call minpac#clean()
    
   " limelight/goyo
-  let g:limelight_conceal_ctermfg = 'gray'
-  let g:limelight_conceal_ctermfg = 240
+  let g:limelight_conceal_ctermfg = 240 
   autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoEnter set spell
   autocmd! User GoyoLeave Limelight!
+  autocmd! User GoyoLeave set nospell
 
   " fzf/ripgrep
   " files

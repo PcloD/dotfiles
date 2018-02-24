@@ -32,6 +32,10 @@ function! mappings#init() abort
   nnoremap + <C-a>
   nnoremap - <C-x>
 
+  " indentation
+  nnoremap > >>
+  nnoremap < <<
+
   " redo
   nnoremap U <C-r>
 
