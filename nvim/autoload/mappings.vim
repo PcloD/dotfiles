@@ -7,11 +7,6 @@ function! mappings#init() abort
   " edit .vimrc etc.
   nnoremap <Leader>ev :e ~/.config/nvim<CR>
 
-  " edit mappings, plugins, settings
-  nnoremap <Leader>vm :e ~/.config/nvim/autoload/mappings.vim<CR>
-  nnoremap <Leader>vp :e ~/.config/nvim/autoload/plugins.vim<CR>
-  nnoremap <Leader>vs :e ~/.config/nvim/autoload/settings.vim<CR>
-
   " source .vimrc
   nnoremap <Leader>sv :call ReloadConfigs()<CR>:so ~/.config/nvim/init.vim<CR>
 
@@ -43,10 +38,12 @@ function! mappings#init() abort
   nnoremap <Leader>ch :!google-chrome 
 
   " turn a snake into a camel
-  nnoremap <Leader>_ 0f_x~
+  nnoremap <Leader>+ mmviw:s/\%V_\(.\)/\U\1/g<CR>:nohlsearch<CR>`m
+  " turn a camel into a snake
+  nnoremap <Leader>_ mmviw:s/\%V\(\u\)/_\L\1/g<CR>:nohlsearch<CR>`m
 
   " turn a function into a closure
-  nnoremap <Leader>( 0f(i = f{i=> 
+  nnoremap <Leader>( :s/function/const/ef(i = f)a =>
 
   " reload
   nnoremap <Leader>R :e!<CR>
@@ -96,7 +93,7 @@ function! mappings#init() abort
   nnoremap <F5> :wa<CR>:make!<CR>
   " show only this file (close others)
   nnoremap <Leader>o <C-W>o<CR>
-  " save all
+  " select all
   nnoremap <Leader>sa ggVG
   " show current column
   nnoremap <Leader>co :set cursorcolumn!<CR>
