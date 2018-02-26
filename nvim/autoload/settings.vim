@@ -1,16 +1,16 @@
 function! settings#init() abort
-  filetype plugin on
+  filetype plugin indent on
   syntax on
   let g:gruvbox_contrast_dark="hard"
   let g:gruvbox_contrast_light="hard"
   colorscheme gruvbox
-  set autoindent
+  set autoindent smartindent
   set autoread
   set background=dark
   set backspace=indent,eol,start
   set clipboard=unnamedplus
   set colorcolumn=120
-  set exrc
+  set expandtab
   set hlsearch
   set ignorecase
   set incsearch
@@ -19,18 +19,14 @@ function! settings#init() abort
   set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:✗,space:·
   set mouse=a
   set nobackup
-  set expandtab
   set noswapfile
-  set noro
   set noshowmode
   set number
-  set ruler
   set shiftwidth=2
   set softtabstop=2
   set spelllang=en_us
   set spellfile=~/Dropbox/vimspell/en.utf-8.add
   set splitright
-  set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab autoindent smartindent
   set timeoutlen=2000
   set ttimeoutlen=0
   set wildmenu
