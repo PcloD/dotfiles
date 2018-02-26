@@ -2,7 +2,9 @@ function! mappings#init() abort
   let g:mapleader=","
 
   " capitalize current word
-  nnoremap <Leader>u mqviwU`q
+  nnoremap <Leader>U mqviwU`q
+  " lower case current word
+  nnoremap <Leader>u mqviwUviw~`q
 
   " edit .vimrc etc.
   nnoremap <Leader>ev :e ~/.config/nvim<CR>
@@ -90,7 +92,7 @@ function! mappings#init() abort
   " show invisible chars
   nnoremap <Leader>l :set list!<CR>
   nnoremap <Leader>x :redraw!<CR>
-  nnoremap <F5> :wa<CR>:make!<CR>
+  nnoremap <F5> :wa<CR>:make<CR>
   " show only this file (close others)
   nnoremap <Leader>o <C-W>o<CR>
   " select all
