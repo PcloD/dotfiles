@@ -13,6 +13,8 @@ source $ZSH/oh-my-zsh.sh
 # my aliases
 source ~/.aliases
 
+export PATH=$PATH:/usr/local/go/bin
+
 # let's always use nvim 
 export VISUAL=nvim
 export EDITOR=nvim
