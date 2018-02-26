@@ -6,6 +6,8 @@ function! mappings#init() abort
   " lower case current word
   nnoremap <Leader>u mqviwUviw~`q
 
+  nnoremap <Leader>D :bd <C-a><CR>
+
   " edit .vimrc etc.
   nnoremap <Leader>ev :e ~/.config/nvim<CR>
 
