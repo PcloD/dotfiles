@@ -28,28 +28,42 @@ function! plugins#init() abort
    
   " limelight/goyo
   let g:limelight_conceal_ctermfg = 240 
-  autocmd! User GoyoEnter Limelight
-  autocmd! User GoyoEnter set spell
-  autocmd! User GoyoLeave Limelight!
-  autocmd! User GoyoLeave set nospell
+  autocmd! User GoyoEnter call GoyoStart()
+  autocmd! User GoyoLeave call GoyoEnd()
 
-  " fzf/ripgrep
+  function! GoyoStart()
+    Limelight
+    set spell
+  endfunction
+
+  function! GoyoEnd()
+    Limelight!
+    set nospell
+  endfunction
+
+  " fzf/ripgrep ===========================================
+  "
   " files
   let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
+
   " words: allow wildcards and regex stuff here
-  command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --ignore-case --hidden --follow --color "always" '.shellescape(<q-args>), 1, fzf#vim#with_preview('right:50%:wrap', '?'))
+  command! -bang -nargs=* Find call fzf#vim#grep(
+  \ 'rg --column --line-number --no-heading --ignore-case --hidden --follow --color "always" '.shellescape(<q-args>),
+  \ 1,
+  \ fzf#vim#with_preview('right:50%:wrap', '?'))
+
   " word under cursor: literal (--fixed-strings) for this
-  command! -bang -nargs=* FindCurrent call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" '.shellescape(expand('<cword>')), 1, fzf#vim#with_preview('right:50%:wrap', '?'))
+  command! -bang -nargs=* FindCurrent call fzf#vim#grep(
+  \ 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" '.shellescape(expand('<cword>')),
+  \ 1,
+  \ fzf#vim#with_preview('right:50%:wrap', '?'))
 
-  " quick-scope
-  let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-
-  " NERD tree and comment
+  " NERD tree and comment =================================
   let g:NERDSpaceDelims=1
   let g:NERDDefaultAlign='left'
   let g:NERDTreeWinSize=40
 
-  " lightline / ALE / buffer
+  " lightline / ALE / buffer ==============================
   let g:lightline = {
   \ 'colorscheme': 'gruvbox',
   \ 'active': {
@@ -77,17 +91,17 @@ function! plugins#init() abort
   \  'buffers': 'tabsel',
   \ }
 
-  " ALE
-  let g:ale_linters = {
-  \  'javascript': ['eslint'],
-  \  'ruby': ['rubocop'],
-  \}
-
-  " lightline-bufferline
+  " lightline-bufferline =================================
   set hidden  " allow buffer switching without saving
   set showtabline=2  " always show tabline
   let g:lightline#bufferline#read_only='ro'
   let g:lightline#bufferline#shorten_path=0
   let g:lightline#bufferline#show_number=2
+
+  " ALE
+  let g:ale_linters = {
+  \  'javascript': ['eslint'],
+  \  'ruby': ['rubocop'],
+  \}
 
 endfunction

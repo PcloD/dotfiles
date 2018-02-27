@@ -11,6 +11,7 @@ function! settings#init() abort
   set clipboard=unnamedplus
   set colorcolumn=120
   set expandtab
+  set formatoptions+=j
   set hlsearch
   set ignorecase
   set incsearch
@@ -22,6 +23,7 @@ function! settings#init() abort
   set noswapfile
   set noshowmode
   set number
+  set scrolloff=10
   set shiftwidth=2
   set softtabstop=2
   set spelllang=en_us
