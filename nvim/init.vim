@@ -157,33 +157,33 @@ augroup END
 
 
 " ============================== MAPPINGS ==============================
-
-let g:mapleader=","
+let mapleader = " "
+nnoremap <Leader>d :hello there
 
 " capitalize current word
-nnoremap <Leader>U mqviwU`q
+nnoremap ,U mqviwU`q
 
 " lower case current word
-nnoremap <Leader>u mqviwUviw~`q
+nnoremap ,u mqviwUviw~`q
 
 " delete buffer
-nnoremap <Leader>d :bd<CR>
+nnoremap ,d :bd<CR>
 
 " delete all buffers
-nnoremap <Leader>D :bd <C-a><CR>
+nnoremap ,D :bd <C-a><CR>
 
 " edit .vimrc etc.
-nnoremap <Leader>ev :e ~/.config/nvim/init.vim<CR>
-
+nnoremap ,ev :e ~/.config/nvim/init.vim<CR>
+nnoremap ,sv :so ~/.config/nvim/init.vim<CR>
 " nerdtree
 nnoremap <F2> :NERDTreeToggle<CR>
 nnoremap <F3> :NERDTreeFind<CR>
 
 " npm
-nnoremap <Leader>n :!npm run 
+nnoremap ,n :!npm run 
 
 " chrome
-nnoremap <Leader>ch :!google-chrome 
+nnoremap ,ch :!google-chrome 
 
 " increment/decrement numbers
 nnoremap + <C-a>
@@ -197,70 +197,69 @@ nnoremap < <<
 nnoremap U <C-r>
 
 " turn a snake into a camel
-nnoremap <Leader>+ mmviw:s/\%V_\(.\)/\U\1/g<CR>:nohlsearch<CR>`m
+nnoremap ,+ mmviw:s/\%V_\(.\)/\U\1/g<CR>:nohlsearch<CR>`m
 
 " turn a camel into a snake
-nnoremap <Leader>_ mmviw:s/\%V\(\u\)/_\L\1/g<CR>:nohlsearch<CR>`m
+nnoremap ,_ mmviw:s/\%V\(\u\)/_\L\1/g<CR>:nohlsearch<CR>`m
 
 " turn a function into a closure
-nnoremap <Leader>( :s/function/const/ef(i = f)a =>
+nnoremap ,( :s/function/const/ef(i = f)a =>
 
 " reload
-nnoremap <Leader>R :e!<CR>
+nnoremap ,R :e!<CR>
 
 " goyo mode
-nnoremap <Leader>gy :Goyo<CR>
+nnoremap ,gy :Goyo<CR>
 
 " move by one line
 nnoremap j gj
 nnoremap k gk
 
 " find and replace word under cursor
-nnoremap <Leader>rw :%s/<c-r><c-w>//g<left><left>
+nnoremap ,rw :%s/<c-r><c-w>//g<left><left>
 " find and replace word
-nnoremap <Leader>rr :%s//g<Left><Left>
+nnoremap ,rr :%s//g<Left><Left>
 
-" fzf 
-nnoremap <Leader>f :Files<CR>
-nnoremap <Leader>a :Find 
-nnoremap <Leader>F :FindCurrent<CR>
-nnoremap <Leader>b :Buffers<CR>
+" fzf (see fzf under plugins)
+nnoremap ,f :Files<CR>
+nnoremap ,a :Find 
+nnoremap ,F :FindCurrent<CR>
+nnoremap ,b :Buffers<CR>
 
 " git
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gl :GitGutterLineHighlightsToggle<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gp :Git push<CR>
+nnoremap ,gs :Gstatus<CR>
+nnoremap ,gb :Gblame<CR>
+nnoremap ,gd :Gdiff<CR>
+nnoremap ,gc :Gcommit<CR>
+nnoremap ,gp :Git push<CR>
 
 " quit all
-nnoremap <Leader>q :qa<CR>
+nnoremap ,q :qa<CR>
 
 " no highlight
-nnoremap <Leader>hh :nohlsearch<CR>
+nnoremap ,hh :nohlsearch<CR>
 
 " show invisible chars
-nnoremap <Leader>l :set list!<CR>
+nnoremap ,l :set list!<CR>
 
 " redraw screen
-nnoremap <Leader>x :redraw!<CR>
+nnoremap ,x :redraw!<CR>
 
 " run make
 nnoremap <F5> :wa<CR>:make<CR>
 
 " show only this file (close others)
-nnoremap <Leader>o <C-W>o<CR>
+nnoremap ,o <C-W>o<CR>
 
 " select all
-nnoremap <Leader>sa ggVG
+nnoremap ,sa ggVG
 
 " 0 is easier. ^ is more useful.
 nnoremap 0 ^
 nnoremap ^ 0
 
 " ALE next error
-nmap <silent> <Leader>es <Plug>(ale_next_wrap)
+nmap <silent> ,es <Plug>(ale_next_wrap)
 
 " next/prev buffer
 nnoremap <S-Tab> :bprev<CR>
@@ -270,13 +269,13 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <BS> <C-^>
 
 " lightline
-nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+nmap ,1 <Plug>lightline#bufferline#go(1)
+nmap ,2 <Plug>lightline#bufferline#go(2)
+nmap ,3 <Plug>lightline#bufferline#go(3)
+nmap ,4 <Plug>lightline#bufferline#go(4)
+nmap ,5 <Plug>lightline#bufferline#go(5)
+nmap ,6 <Plug>lightline#bufferline#go(6)
+nmap ,7 <Plug>lightline#bufferline#go(7)
+nmap ,8 <Plug>lightline#bufferline#go(8)
+nmap ,9 <Plug>lightline#bufferline#go(9)
+nmap ,0 <Plug>lightline#bufferline#go(10)
