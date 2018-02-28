@@ -10,10 +10,5 @@
 2. Set up linters (eslint, rubocop) as needed.
    Define in `plugins.vim`.
 
-3. Set up symlinks as described below:
-   Use `sudo ln -s` to link `autoload`, `colors`, and `init.vim` into `~/.config/nvim`
+3. `sudo ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim`
 
-   You should wind up with these three symlinks:
-   * `~/.config/nvim/autoload`
-   * `~/.config/nvim/colors`
-   * `~/.config/nvim/init.vim`
