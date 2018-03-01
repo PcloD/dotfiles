@@ -6,7 +6,6 @@ build/
 coverage/
 dist/
 docs/
-envs/
 fonts/
 .git/
 .github/
