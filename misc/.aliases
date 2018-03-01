@@ -15,7 +15,7 @@ alias tmuxx="tmux attach -t main || tmux new -s main"
 
 alias gdt="git difftool"
 alias gc="git commit -m "
-alias gpushf="git push --force"
+alias gpf="git push --force"
 
 toggle_repeat() {
   if [[ -z "${XSET_R_STATE}" ]]; then
