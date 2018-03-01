@@ -188,10 +188,6 @@ nnoremap ,n :!npm run
 " chrome
 nnoremap ,ch :!google-chrome 
 
-" indentation
-nnoremap > >>
-nnoremap < <<
-
 " redo
 nnoremap U <C-r>
 
@@ -210,7 +206,7 @@ nnoremap ,R :e!<CR>
 " goyo mode
 nnoremap ,gy :Goyo<CR>
 
-" move by one line
+" move by one visual line
 nnoremap j gj
 nnoremap k gk
 
@@ -253,6 +249,9 @@ nnoremap ,o <C-W>o<CR>
 " select all
 nnoremap ,sa ggVG
 
+" yank all
+nnoremap ,ya ggVGy
+
 " 0 is easier. ^ is more useful.
 nnoremap 0 ^
 nnoremap ^ 0
@@ -264,10 +263,7 @@ nmap <silent> ,es <Plug>(ale_next_wrap)
 nnoremap <S-Tab> :bprev<CR>
 nnoremap <Tab> :bnext<CR>
 
-" alternate buffer
-nnoremap <BS> <C-^>
-
-" lightline
+" lightline-bufferline
 nmap ,1 <Plug>lightline#bufferline#go(1)
 nmap ,2 <Plug>lightline#bufferline#go(2)
 nmap ,3 <Plug>lightline#bufferline#go(3)
