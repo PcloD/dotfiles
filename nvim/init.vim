@@ -7,7 +7,6 @@ call minpac#add('airblade/vim-gitgutter')
 call minpac#add('junegunn/goyo.vim')
 call minpac#add('junegunn/limelight.vim')
 call minpac#add('scrooloose/nerdcommenter')
-call minpac#add('scrooloose/nerdtree')
 call minpac#add('ervandew/supertab')
 call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('SirVer/ultisnips')
@@ -116,6 +115,10 @@ let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_contrast_light="hard"
 colorscheme gruvbox
 
+" netrw
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+
 set autoindent
 set autoread
 set background=dark
@@ -160,6 +163,10 @@ augroup END
 let mapleader = " "
 nnoremap <Leader>d :hello there
 
+" netrw window
+nnoremap e :e.<CR>
+nnoremap E :E<CR>
+
 " capitalize current word
 nnoremap ,U mqviwU`q
 
@@ -175,19 +182,12 @@ nnoremap ,D :bd <C-a><CR>
 " edit .vimrc etc.
 nnoremap ,ev :e ~/.config/nvim/init.vim<CR>
 nnoremap ,sv :so ~/.config/nvim/init.vim<CR>
-" nerdtree
-nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :NERDTreeFind<CR>
 
 " npm
 nnoremap ,n :!npm run 
 
 " chrome
 nnoremap ,ch :!google-chrome 
-
-" increment/decrement numbers
-nnoremap + <C-a>
-nnoremap - <C-x>
 
 " indentation
 nnoremap > >>
