@@ -21,6 +21,7 @@ call minpac#add('itchyny/lightline.vim')
 call minpac#add('maximbaz/lightline-ale')
 call minpac#add('mgee/lightline-bufferline')
 call minpac#add('morhetz/gruvbox')
+call minpac#add('jeetsukumaran/vim-filebeagle')
 
 " ============================== MINPAC
 command! Mpup call minpac#update()
@@ -115,10 +116,6 @@ let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_contrast_light="hard"
 colorscheme gruvbox
 
-" netrw
-let g:netrw_liststyle = 3
-let g:netrw_banner = 0
-
 set autoindent
 set autoread
 set background=dark
@@ -161,10 +158,6 @@ augroup END
 
 " ============================== MAPPINGS ==============================
 let mapleader = " "
-
-" netrw window
-nnoremap e :e.<CR>
-nnoremap E :E<CR>
 
 " capitalize current word
 nnoremap ,U mqviwU`q
