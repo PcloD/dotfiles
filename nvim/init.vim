@@ -161,7 +161,6 @@ augroup END
 
 " ============================== MAPPINGS ==============================
 let mapleader = " "
-nnoremap <Leader>d :hello there
 
 " netrw window
 nnoremap e :e.<CR>
