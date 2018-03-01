@@ -7,7 +7,6 @@ call minpac#add('airblade/vim-gitgutter')
 call minpac#add('junegunn/goyo.vim')
 call minpac#add('junegunn/limelight.vim')
 call minpac#add('scrooloose/nerdcommenter')
-call minpac#add('scrooloose/nerdtree')
 call minpac#add('ervandew/supertab')
 call minpac#add('christoomey/vim-tmux-navigator')
 call minpac#add('SirVer/ultisnips')
@@ -22,6 +21,7 @@ call minpac#add('itchyny/lightline.vim')
 call minpac#add('maximbaz/lightline-ale')
 call minpac#add('mgee/lightline-bufferline')
 call minpac#add('morhetz/gruvbox')
+call minpac#add('jeetsukumaran/vim-filebeagle')
 
 " ============================== MINPAC
 command! Mpup call minpac#update()
@@ -158,7 +158,6 @@ augroup END
 
 " ============================== MAPPINGS ==============================
 let mapleader = " "
-nnoremap <Leader>d :hello there
 
 " capitalize current word
 nnoremap ,U mqviwU`q
@@ -175,23 +174,12 @@ nnoremap ,D :bd <C-a><CR>
 " edit .vimrc etc.
 nnoremap ,ev :e ~/.config/nvim/init.vim<CR>
 nnoremap ,sv :so ~/.config/nvim/init.vim<CR>
-" nerdtree
-nnoremap <F2> :NERDTreeToggle<CR>
-nnoremap <F3> :NERDTreeFind<CR>
 
 " npm
 nnoremap ,n :!npm run 
 
 " chrome
 nnoremap ,ch :!google-chrome 
-
-" increment/decrement numbers
-nnoremap + <C-a>
-nnoremap - <C-x>
-
-" indentation
-nnoremap > >>
-nnoremap < <<
 
 " redo
 nnoremap U <C-r>
@@ -211,7 +199,7 @@ nnoremap ,R :e!<CR>
 " goyo mode
 nnoremap ,gy :Goyo<CR>
 
-" move by one line
+" move by one visual line
 nnoremap j gj
 nnoremap k gk
 
@@ -254,6 +242,9 @@ nnoremap ,o <C-W>o<CR>
 " select all
 nnoremap ,sa ggVG
 
+" yank all
+nnoremap ,ya ggVGy
+
 " 0 is easier. ^ is more useful.
 nnoremap 0 ^
 nnoremap ^ 0
@@ -265,10 +256,7 @@ nmap <silent> ,es <Plug>(ale_next_wrap)
 nnoremap <S-Tab> :bprev<CR>
 nnoremap <Tab> :bnext<CR>
 
-" alternate buffer
-nnoremap <BS> <C-^>
-
-" lightline
+" lightline-bufferline
 nmap ,1 <Plug>lightline#bufferline#go(1)
 nmap ,2 <Plug>lightline#bufferline#go(2)
 nmap ,3 <Plug>lightline#bufferline#go(3)
