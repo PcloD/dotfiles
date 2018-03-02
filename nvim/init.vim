@@ -267,3 +267,8 @@ nmap ,7 <Plug>lightline#bufferline#go(7)
 nmap ,8 <Plug>lightline#bufferline#go(8)
 nmap ,9 <Plug>lightline#bufferline#go(9)
 nmap ,0 <Plug>lightline#bufferline#go(10)
+
+" filebeagle
+nnoremap bd :ClipPathname<CR>:!rm <C-r>+
+nnoremap bm :ClipPathname<CR>:!mv <C-r>+ <C-r>+
+
