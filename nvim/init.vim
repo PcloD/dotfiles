@@ -22,6 +22,7 @@ call minpac#add('maximbaz/lightline-ale')
 call minpac#add('mgee/lightline-bufferline')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('jeetsukumaran/vim-filebeagle')
+call minpac#add('junegunn/vim-peekaboo')
 
 " ============================== MINPAC
 command! Mpup call minpac#update()
