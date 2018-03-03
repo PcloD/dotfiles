@@ -23,6 +23,8 @@ tmux_name_windows() {
   tmux rename-window -t 4 "misc"
 }
 
+alias f="ranger"
+
 alias gdt="git difftool"
 alias gc="git commit -m "
 alias gpf="git push --force"
