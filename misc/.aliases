@@ -14,6 +14,8 @@ alias lp="fzf --preview='cat {}' --preview-window=right:70%:wrap +x"
 # tmux
 alias tmuxx="tmux attach -t main || tmux new -s main"
 
+alias f="ranger"
+
 alias gdt="git difftool"
 alias gc="git commit -m "
 alias gpf="git push --force"
