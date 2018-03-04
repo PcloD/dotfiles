@@ -96,9 +96,11 @@ let g:lightline.component_type = {
 \ }
 
 " ============================== LIGHTLINE-BUFFERLINE
-let g:lightline#bufferline#read_only='ro'
-let g:lightline#bufferline#shorten_path=0
-let g:lightline#bufferline#show_number=2
+let g:lightline#bufferline#read_only='⚿'
+let g:lightline#bufferline#modified='✎'
+let g:lightline#bufferline#shorten_path=1
+let g:lightline#bufferline#show_number=1
+let g:lightline#bufferline#unnamed='[unnamed]'
 
 " ============================== ALE
 let g:ale_linters = {
@@ -159,6 +161,12 @@ augroup END
 
 " ============================== MAPPINGS ==============================
 let mapleader = " "
+
+" trailing spaces and multiple lines
+nnoremap ,w :%s/ \+$//eg<CR>:%s/\n\{3,\}/\r\r/eg<CR>
+
+" quit, no save
+nnoremap ,! :q!
 
 " capitalize current word
 nnoremap ,U mqviwU`q
