@@ -13,6 +13,15 @@ alias lp="fzf --preview='cat {}' --preview-window=right:70%:wrap +x"
 
 # tmux
 alias tmuxx="tmux attach -t main || tmux new -s main"
+alias tmuxnames="tmux_name_windows"
+
+tmux_name_windows() {
+  tmux rename-window -t 0 "web-zsh"
+  tmux rename-window -t 1 "web-vim"
+  tmux rename-window -t 2 "api-zsh"
+  tmux rename-window -t 3 "api-vim"
+  tmux rename-window -t 4 "misc"
+}
 
 alias f="ranger"
 
