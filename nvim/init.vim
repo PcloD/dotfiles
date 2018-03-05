@@ -143,6 +143,7 @@ set noshowmode
 set number
 set scrolloff=10
 set shiftwidth=2
+set shortmess=I
 set showtabline=2   " for lightline-bufferline
 set softtabstop=2
 set spelllang=en_us
@@ -166,7 +167,7 @@ augroup END
 let mapleader = " "
 
 " vim anywhere (copy all, exit)
-nnoremap ,va ggVGy:q!<CR>
+nnoremap ,va ggvG$"+y:q!<CR>
 
 " trailing spaces and multiple lines
 function! KillWhiteSpace()
