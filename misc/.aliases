@@ -42,3 +42,4 @@ toggle_repeat() {
   fi
 }
 
+alias hexo_drafts="ag title source/_drafts --no-filename"

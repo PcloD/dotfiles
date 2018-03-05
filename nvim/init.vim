@@ -25,8 +25,11 @@ call minpac#add('jeetsukumaran/vim-filebeagle')
 call minpac#add('junegunn/vim-peekaboo')
 
 " ============================== MINPAC
-command! Mpup call minpac#update()
-command! Mpclean call minpac#clean()
+function! MinpacReset()
+  call minpac#update()
+  call minpac#clean()
+endfunction
+command! MinPac call MinpacReset()
  
 " ============================== LIMELIGHT/GOYO/SPELL
 let g:limelight_conceal_ctermfg = 240 
@@ -162,8 +165,17 @@ augroup END
 " ============================== MAPPINGS ==============================
 let mapleader = " "
 
+" vim anywhere (copy all, exit)
+nnoremap ,va ggVGy:q!<CR>
+
 " trailing spaces and multiple lines
-nnoremap ,w :%s/ \+$//eg<CR>:%s/\n\{3,\}/\r\r/eg<CR>
+function! KillWhiteSpace()
+  %s/ \+$//eg
+  %s/\n\{3,\}/\r\r/eg
+  %s/{\n\{2,\}/{\r/eg
+endfunction
+nnoremap ,w :call KillWhiteSpace()<CR>
+" nnoremap ,w :%s/ \+$//eg<CR>:%s/\n\{3,\}/\r\r/eg<CR>
 
 " quit, no save
 nnoremap ,! :q!
