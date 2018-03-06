@@ -19,3 +19,12 @@ Todos:
 * Learn enough about `zsh` to not depend on `oh-my-zsh`.
 * Look into other syntax management / highlighting solutions in `vim`.
 * Implement ctags
+
+Installing:
+
+1. Install git
+2. Install neovim
+3. Install tmux
+6. Install ranger
+7. Install zsh and ohmyzsh
+
