@@ -19,7 +19,6 @@ call minpac#add('sheerun/vim-polyglot')
 call minpac#add('w0rp/ale')
 call minpac#add('itchyny/lightline.vim')
 call minpac#add('maximbaz/lightline-ale')
-call minpac#add('mgee/lightline-bufferline')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('jeetsukumaran/vim-filebeagle')
 call minpac#add('junegunn/vim-peekaboo')
@@ -65,10 +64,15 @@ command! -bang -nargs=* FindCurrent call fzf#vim#grep(
 \ 1,
 \ fzf#vim#with_preview('right:50%:wrap', '?'))
 
+command! MRU call fzf#run({
+\  'source':  v:oldfiles,
+\  'sink':    'e',
+\  'options': '-m -x +s',
+\  'down':    '40%'})
+
 " ============================== NERDTREE NERDCOMMENT
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign='left'
-let g:NERDTreeWinSize=40
 
 " ============================== LIGHTLINE / BUFFERLINE / ALE
 let g:lightline = {
@@ -76,11 +80,11 @@ let g:lightline = {
 \ 'active': {
 \   'left':  [ [ 'mode', 'paste'],
 \              [ 'linter_errors', 'linter_warnings', 'linter_ok' ],
-\              [ 'gitbranch', 'readonly', 'relativepath', 'modified' ]],
+\              [ 'readonly', 'relativepath', 'modified' ]],
 \   'right': [ [ 'gitbranch' ]],
 \ },
 \ 'tabline': {
-\   'left':  [ [ 'buffers'] ],
+\   'left': [ [ 'relativepath' ] ],
 \ },
 \ }
 
@@ -88,22 +92,13 @@ let g:lightline.component_expand = {
 \  'linter_warnings': 'lightline#ale#warnings',
 \  'linter_errors': 'lightline#ale#errors',
 \  'linter_ok': 'lightline#ale#ok',
-\  'buffers': 'lightline#bufferline#buffers',
 \  'gitbranch': 'fugitive#head',
 \ }
 
 let g:lightline.component_type = {
 \  'linter_warnings': 'warning',
 \  'linter_errors': 'error',
-\  'buffers': 'tabsel',
 \ }
-
-" ============================== LIGHTLINE-BUFFERLINE
-let g:lightline#bufferline#read_only='⚿'
-let g:lightline#bufferline#modified='✎'
-let g:lightline#bufferline#shorten_path=1
-let g:lightline#bufferline#show_number=1
-let g:lightline#bufferline#unnamed='[unnamed]'
 
 " ============================== ALE
 let g:ale_linters = {
@@ -141,10 +136,11 @@ set nobackup
 set noswapfile
 set noshowmode
 set number
+set path+=src
 set scrolloff=10
 set shiftwidth=2
 set shortmess=I
-set showtabline=2   " for lightline-bufferline
+set showtabline=2
 set softtabstop=2
 set spelllang=en_us
 set spellfile=~/Dropbox/vimspell/en.utf-8.add
@@ -235,6 +231,7 @@ nnoremap ,f :Files<CR>
 nnoremap ,a :Find 
 nnoremap ,F :FindCurrent<CR>
 nnoremap ,b :Buffers<CR>
+nnoremap ,of :MRU<CR>
 
 " git
 nnoremap ,gs :Gstatus<CR>
@@ -259,7 +256,7 @@ nnoremap ,x :redraw!<CR>
 nnoremap <F5> :wa<CR>:make<CR>
 
 " show only this file (close others)
-nnoremap ,o <C-W>o<CR>
+nnoremap ,ow <C-W>o<CR>
 
 " select all
 nnoremap ,sa ggVG
@@ -275,20 +272,8 @@ nnoremap ^ 0
 nmap <silent> ,es <Plug>(ale_next_wrap)
 
 " next/prev buffer
-nnoremap <S-Tab> :bprev<CR>
-nnoremap <Tab> :bnext<CR>
-
-" lightline-bufferline
-nmap ,1 <Plug>lightline#bufferline#go(1)
-nmap ,2 <Plug>lightline#bufferline#go(2)
-nmap ,3 <Plug>lightline#bufferline#go(3)
-nmap ,4 <Plug>lightline#bufferline#go(4)
-nmap ,5 <Plug>lightline#bufferline#go(5)
-nmap ,6 <Plug>lightline#bufferline#go(6)
-nmap ,7 <Plug>lightline#bufferline#go(7)
-nmap ,8 <Plug>lightline#bufferline#go(8)
-nmap ,9 <Plug>lightline#bufferline#go(9)
-nmap ,0 <Plug>lightline#bufferline#go(10)
+nnoremap <Tab> :b#<CR>
+nnoremap ,<Tab> :bnext<CR>
 
 " filebeagle
 nnoremap bd :ClipPathname<CR>:!rm <C-r>+
