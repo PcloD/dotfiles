@@ -197,6 +197,9 @@ nnoremap ,gp :Git push<CR>
 " quit all
 nnoremap ,q :qa<CR>
 
+" quit without saving (with enter to confirm)
+nnoremap ,Q :q!
+
 " no highlight
 nnoremap ,hh :nohlsearch<CR>
 
