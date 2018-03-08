@@ -17,8 +17,6 @@ call minpac#add('tpope/vim-fugitive')
 call minpac#add('tpope/vim-repeat')
 call minpac#add('sheerun/vim-polyglot')
 call minpac#add('w0rp/ale')
-call minpac#add('itchyny/lightline.vim')
-call minpac#add('maximbaz/lightline-ale')
 call minpac#add('morhetz/gruvbox')
 call minpac#add('jeetsukumaran/vim-filebeagle')
 call minpac#add('junegunn/vim-peekaboo')
@@ -64,48 +62,31 @@ command! -bang -nargs=* FindCurrent call fzf#vim#grep(
 \ 1,
 \ fzf#vim#with_preview('right:50%:wrap', '?'))
 
+" ========== most recently used files
 command! MRU call fzf#run({
 \  'source':  v:oldfiles,
 \  'sink':    'e',
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 
-" ============================== NERDTREE NERDCOMMENT
-let g:NERDSpaceDelims=1
-let g:NERDDefaultAlign='left'
 
-" ============================== LIGHTLINE / BUFFERLINE / ALE
-let g:lightline = {
-\ 'colorscheme': 'gruvbox',
-\ 'active': {
-\   'left':  [ [ 'mode', 'paste'],
-\              [ 'linter_errors', 'linter_warnings', 'linter_ok' ],
-\              [ 'readonly', 'relativepath', 'modified' ]],
-\   'right': [ [ 'gitbranch' ]],
-\ },
-\ 'tabline': {
-\   'left': [ [ 'relativepath' ] ],
-\ },
-\ }
+" ============================== STATUS LINE ==============================
 
-let g:lightline.component_expand = {
-\  'linter_warnings': 'lightline#ale#warnings',
-\  'linter_errors': 'lightline#ale#errors',
-\  'linter_ok': 'lightline#ale#ok',
-\  'gitbranch': 'fugitive#head',
-\ }
+function! LinterStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:word = l:counts.total == 1 ? "LINT ISSUE" : "LINT ISSUES"
+  return l:counts.total == 0 ? '[ALL GOOD] ' : printf('[ %s %s ] ', counts.total, word)
+endfunction
 
-let g:lightline.component_type = {
-\  'linter_warnings': 'warning',
-\  'linter_errors': 'error',
-\ }
+function! GitBranchStatus()
+  return fugitive#head() == "" ? "" : printf("[%s]", fugitive#head())
+endfunction
 
-" ============================== ALE
-let g:ale_linters = {
-\  'javascript': ['eslint'],
-\  'ruby': ['rubocop'],
-\}
-
+set statusline=
+set statusline+=%{LinterStatus()}
+set statusline+=%f
+set statusline+=%=[%l:%L]
+set statusline+=%{GitBranchStatus()}
 
 " ============================== SETTINGS ==============================
 
@@ -116,6 +97,10 @@ syntax on
 let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_contrast_light="hard"
 colorscheme gruvbox
+
+" NERDCommenter
+let g:NERDSpaceDelims=1
+let g:NERDDefaultAlign='left'
 
 set autoindent
 set autoread
@@ -162,32 +147,19 @@ augroup END
 " ============================== MAPPINGS ==============================
 let mapleader = " "
 
-" vim anywhere (copy all, exit)
-nnoremap ,va ggvG$"+y:q!<CR>
-
-" trailing spaces and multiple lines
-function! KillWhiteSpace()
-  %s/ \+$//eg
-  %s/\n\{3,\}/\r\r/eg
-  %s/{\n\{2,\}/{\r/eg
-endfunction
-nnoremap ,w :call KillWhiteSpace()<CR>
-" nnoremap ,w :%s/ \+$//eg<CR>:%s/\n\{3,\}/\r\r/eg<CR>
-
-" quit, no save
-nnoremap ,! :q!
-
-" capitalize current word
-nnoremap ,U mqviwU`q
-
-" lower case current word
-nnoremap ,u mqviwUviw~`q
+" pseudo-leader , mappings
 
 " delete buffer
 nnoremap ,d :bd<CR>
 
 " delete all buffers
 nnoremap ,D :bd <C-a><CR>
+
+" capitalize current word
+nnoremap ,U mqviwU`q
+
+" lower case current word
+nnoremap ,u mqviwUviw~`q
 
 " edit .vimrc etc.
 nnoremap ,ev :e ~/.config/nvim/init.vim<CR>
@@ -196,33 +168,15 @@ nnoremap ,sv :so ~/.config/nvim/init.vim<CR>
 " npm
 nnoremap ,n :!npm run 
 
-" chrome
-nnoremap ,ch :!google-chrome 
-
-" redo
-nnoremap U <C-r>
-
-" turn a snake into a camel
-nnoremap ,+ mmviw:s/\%V_\(.\)/\U\1/g<CR>:nohlsearch<CR>`m
-
-" turn a camel into a snake
-nnoremap ,_ mmviw:s/\%V\(\u\)/_\L\1/g<CR>:nohlsearch<CR>`m
-
-" turn a function into a closure
-nnoremap ,( :s/function/const/ef(i = f)a =>
-
 " reload
 nnoremap ,R :e!<CR>
 
 " goyo mode
 nnoremap ,gy :Goyo<CR>
 
-" move by one visual line
-nnoremap j gj
-nnoremap k gk
-
 " find and replace word under cursor
 nnoremap ,rw :%s/<c-r><c-w>//g<left><left>
+
 " find and replace word
 nnoremap ,rr :%s//g<Left><Left>
 
@@ -249,33 +203,50 @@ nnoremap ,hh :nohlsearch<CR>
 " show invisible chars
 nnoremap ,l :set list!<CR>
 
-" redraw screen
-nnoremap ,x :redraw!<CR>
+" select all
+nnoremap ,sa ggVG
+
+" ALE next error
+nmap <silent> ,es <Plug>(ale_next_wrap)
+
+" non-leader mappings ==========
 
 " run make
 nnoremap <F5> :wa<CR>:make<CR>
 
-" show only this file (close others)
-nnoremap ,ow <C-W>o<CR>
+" this only gets hit by accident
+nnoremap Q <Nop>
 
-" select all
-nnoremap ,sa ggVG
+" redo
+nnoremap U <C-r>
 
-" yank all
-nnoremap ,ya ggVGy
+" move by one visual line
+nnoremap j gj
+nnoremap k gk
 
 " 0 is easier. ^ is more useful.
 nnoremap 0 ^
 nnoremap ^ 0
 
-" ALE next error
-nmap <silent> ,es <Plug>(ale_next_wrap)
-
 " next/prev buffer
-nnoremap <Tab> :b#<CR>
-nnoremap ,<Tab> :bnext<CR>
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprev<CR>
+nnoremap <BS> :b#<CR>
 
 " filebeagle
 nnoremap bd :ClipPathname<CR>:!rm <C-r>+
 nnoremap bm :ClipPathname<CR>:!mv <C-r>+ <C-r>+
+
+
+
+" ============================== COMMANDS ==============================
+
+" turn a snake into a camel
+command! SnakeToCamel normal mmviw:s/\%V_\(.\)/\U\1/g<CR>:nohlsearch<CR>`m
+
+" turn a camel into a snake
+command! CamelToSnake normal mmviw:s/\%V\(\u\)/_\L\1/g<CR>:nohlsearch<CR>`m
+
+" turn a function into a closure
+command! FuncToClosure normal :s/function/const/ef(i = f)a =>
 
