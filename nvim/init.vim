@@ -74,18 +74,21 @@ command! MRU call fzf#run({
 
 function! LinterStatus() abort
   let l:counts = ale#statusline#Count(bufnr(''))
-  let l:word = l:counts.total == 1 ? "LINT ISSUE" : "LINT ISSUES"
-  return l:counts.total == 0 ? '[ALL GOOD] ' : printf('[ %s %s ] ', counts.total, word)
+  return l:counts.total == 0 ? '  ✔  ' : printf('  PROBLEMS: %s  ', counts.total)
 endfunction
 
 function! GitBranchStatus()
-  return fugitive#head() == "" ? "" : printf("[%s]", fugitive#head())
+  return fugitive#head() == "" ? "" : printf(" ⎇  [%s] ", fugitive#head())
 endfunction
 
 set statusline=
+set statusline+=%#Question#
 set statusline+=%{LinterStatus()}
+set statusline+=%#StatusLineNC#
+set statusline+=\ 
 set statusline+=%f
 set statusline+=%=[%l:%L]
+set statusline+=%#Question#
 set statusline+=%{GitBranchStatus()}
 
 " ============================== SETTINGS ==============================
