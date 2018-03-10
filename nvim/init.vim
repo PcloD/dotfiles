@@ -2,24 +2,23 @@
 
 packadd minpac
 call minpac#init()
-call minpac#add('k-takata/minpac', {'type': 'opt'})
-call minpac#add('airblade/vim-gitgutter')
-call minpac#add('junegunn/goyo.vim')
-call minpac#add('junegunn/limelight.vim')
-call minpac#add('scrooloose/nerdcommenter')
-call minpac#add('ervandew/supertab')
-call minpac#add('christoomey/vim-tmux-navigator')
-call minpac#add('SirVer/ultisnips')
-call minpac#add('bit101/bit-ultisnips')
-call minpac#add('junegunn/fzf')
-call minpac#add('junegunn/fzf.vim')
-call minpac#add('tpope/vim-fugitive')
-call minpac#add('tpope/vim-repeat')
-call minpac#add('sheerun/vim-polyglot')
-call minpac#add('w0rp/ale')
-call minpac#add('morhetz/gruvbox')
-call minpac#add('jeetsukumaran/vim-filebeagle')
-call minpac#add('junegunn/vim-peekaboo')
+call minpac#add('k-takata/minpac', {'type': 'opt'})   " package management
+call minpac#add('airblade/vim-gitgutter')             " git
+call minpac#add('tpope/vim-fugitive')                 " git
+call minpac#add('junegunn/goyo.vim')                  " prose writing
+call minpac#add('junegunn/limelight.vim')             " prose writing
+call minpac#add('scrooloose/nerdcommenter')           " commenting
+call minpac#add('ervandew/supertab')                  " tab completion
+call minpac#add('christoomey/vim-tmux-navigator')     " tmux integration
+call minpac#add('SirVer/ultisnips')                   " snippets
+call minpac#add('bit101/bit-ultisnips')               " my snippets
+call minpac#add('junegunn/fzf')                       " fuzzy finder for file and text searching
+call minpac#add('junegunn/fzf.vim')                   " enhanced fzf integration
+call minpac#add('tpope/vim-repeat')                   " lets some commands repeat
+call minpac#add('sheerun/vim-polyglot')               " language support. do I really need this?
+call minpac#add('w0rp/ale')                           " linting
+call minpac#add('morhetz/gruvbox')                    " color scheme
+call minpac#add('junegunn/vim-peekaboo')              " see registers. won't need this long
 
 " ============================== MINPAC
 function! MinpacReset()
@@ -138,10 +137,8 @@ set timeoutlen=2000
 set ttimeoutlen=0
 set wildmenu
 
-" hide matched parens
-" let loaded_matchparen=1
-
 " reload changed file on focus, buffer enter
+" helps if file was changed externally.
 augroup ReloadGroup
   autocmd!
   autocmd! FocusGained,BufEnter * checktime
@@ -240,10 +237,9 @@ nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprev<CR>
 nnoremap <BS> :b#<CR>
 
-" filebeagle
-nnoremap bd :ClipPathname<CR>:!rm <C-r>+
-nnoremap bm :ClipPathname<CR>:!mv <C-r>+ <C-r>+
-
+" open netrw in current dir
+nnoremap <Space>f :edit .<CR>
+nnoremap - :Explore<CR>
 
 
 " ============================== COMMANDS ==============================
