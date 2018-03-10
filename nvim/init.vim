@@ -82,12 +82,10 @@ function! GitBranchStatus()
 endfunction
 
 set statusline=
-" set statusline+=%#Question#
-" set statusline+=%{LinterStatus()}
 set statusline+=%#StatusLineNC#
 set statusline+=\ 
 set statusline+=%f\ %m%r
-set statusline+=%=[%l:%L]
+set statusline+=%=[line:\ %l/%L][col:\ %03c]
 
 set tabline=%#Question#
 set tabline+=%{LinterStatus()}
@@ -141,7 +139,7 @@ set ttimeoutlen=0
 set wildmenu
 
 " hide matched parens
-let loaded_matchparen=1
+" let loaded_matchparen=1
 
 " reload changed file on focus, buffer enter
 augroup ReloadGroup
