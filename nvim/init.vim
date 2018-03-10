@@ -78,18 +78,21 @@ function! LinterStatus() abort
 endfunction
 
 function! GitBranchStatus()
-  return fugitive#head() == "" ? "" : printf(" ⎇  [%s] ", fugitive#head())
+  return fugitive#head() == "" ? "" : printf("⎇ [ %s ]", fugitive#head())
 endfunction
 
 set statusline=
-set statusline+=%#Question#
-set statusline+=%{LinterStatus()}
+" set statusline+=%#Question#
+" set statusline+=%{LinterStatus()}
 set statusline+=%#StatusLineNC#
 set statusline+=\ 
-set statusline+=%f
+set statusline+=%f\ %m%r
 set statusline+=%=[%l:%L]
-set statusline+=%#Question#
-set statusline+=%{GitBranchStatus()}
+
+set tabline=%#Question#
+set tabline+=%{LinterStatus()}
+set tabline+=%=
+set tabline+=%{GitBranchStatus()}
 
 " ============================== SETTINGS ==============================
 
