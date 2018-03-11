@@ -7,7 +7,7 @@ call minpac#add('airblade/vim-gitgutter')             " git
 call minpac#add('tpope/vim-fugitive')                 " git
 call minpac#add('junegunn/goyo.vim')                  " prose writing
 call minpac#add('junegunn/limelight.vim')             " prose writing
-call minpac#add('scrooloose/nerdcommenter')           " commenting
+call minpac#add('tpope/vim-commentary')               " commenting
 call minpac#add('ervandew/supertab')                  " tab completion
 call minpac#add('christoomey/vim-tmux-navigator')     " tmux integration
 call minpac#add('SirVer/ultisnips')                   " snippets
@@ -18,7 +18,6 @@ call minpac#add('tpope/vim-repeat')                   " lets some commands repea
 call minpac#add('sheerun/vim-polyglot')               " language support. do I really need this?
 call minpac#add('w0rp/ale')                           " linting
 call minpac#add('morhetz/gruvbox')                    " color scheme
-call minpac#add('junegunn/vim-peekaboo')              " see registers. won't need this long
 
 " ============================== MINPAC
 function! MinpacReset()
