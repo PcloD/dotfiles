@@ -83,7 +83,7 @@ endfunction
 set statusline=
 set statusline+=%#StatusLineNC#
 set statusline+=\ 
-set statusline+=%f\ %m%r
+set statusline+=[%n]\ %f\ %m%r
 set statusline+=%=[line:\ %l/%L][col:\ %03c]
 
 set tabline=%#Question#
@@ -104,6 +104,8 @@ colorscheme gruvbox
 " NERDCommenter
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign='left'
+
+let g:netrw_banner=0
 
 set autoindent
 set autoread
@@ -238,7 +240,7 @@ nnoremap <S-Tab> :bprev<CR>
 nnoremap <BS> :b#<CR>
 
 " open netrw in current dir
-nnoremap <Space>f :edit .<CR>
+nnoremap <Space>f :Explore <C-r>=getcwd()<CR><CR>
 nnoremap - :Explore<CR>
 
 
