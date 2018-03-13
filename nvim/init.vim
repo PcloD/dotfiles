@@ -50,13 +50,30 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 " ========== words
 command! -bang -nargs=* Find call fzf#vim#grep(
-\ 'rg --column --line-number --no-heading --ignore-case --hidden --follow --color "always" '.shellescape(<q-args>),
+\ 'rg --column
+\     --line-number
+\     --no-heading
+\     --ignore-case
+\     --hidden
+\     --follow
+\     --color
+\     "always" '
+\   .shellescape(<q-args>),
 \ 1,
 \ fzf#vim#with_preview('right:50%:wrap', '?'))
 
 " ========== word under cursor
 command! -bang -nargs=* FindCurrent call fzf#vim#grep(
-\ 'rg --column --line-number --no-heading --fixed-strings --ignore-case --hidden --follow --color "always" '.shellescape(expand('<cword>')),
+\ 'rg --column
+\     --line-number
+\     --no-heading
+\     --fixed-strings
+\     --ignore-case
+\     --hidden
+\     --follow
+\     --color
+\     "always" '
+\   .shellescape(expand('<cword>')),
 \ 1,
 \ fzf#vim#with_preview('right:50%:wrap', '?'))
 
@@ -239,7 +256,7 @@ nnoremap <S-Tab> :bprev<CR>
 nnoremap <BS> :b#<CR>
 
 " open netrw in current dir
-nnoremap <Space>f :Explore <C-r>=getcwd()<CR><CR>
+nnoremap ,, :Explore .<CR>
 nnoremap - :Explore<CR>
 
 
