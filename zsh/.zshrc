@@ -52,5 +52,5 @@ export PGDATA="/usr/local/pgsql/data"
 
 source ~/.prompt.zsh
 
-export TERM=screen-256color
+export TERM=xterm-256color
 
