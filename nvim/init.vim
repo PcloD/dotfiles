@@ -168,6 +168,11 @@ let mapleader = " "
 
 " pseudo-leader , mappings
 
+" save/open/remove session
+nnoremap ,ss :mksession! ~/.config/nvim/sessions/
+nnoremap ,os :source ~/.config/nvim/sessions/
+nnoremap ,rs :!rm ~/.config/nvim/sessions/
+
 " delete buffer
 nnoremap ,d :bd<CR>
 
