@@ -29,6 +29,7 @@ alias f="ranger"
 alias gdt="git difftool"
 alias gc="git commit -m "
 alias gpf="git push --force"
+alias gdno="git diff --name-only "
 
 toggle_repeat() {
   if [[ -z "${XSET_R_STATE}" ]]; then
