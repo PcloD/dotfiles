@@ -12,3 +12,12 @@
 
 3. `sudo ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim`
 
+4. For python-based plugins
+
+  `sudo apt-get install python-dev python-pip python3-dev python3-pip`
+
+And then...
+
+  `pip install --user neovim`
+  `pip3 install --user neovim`
+
