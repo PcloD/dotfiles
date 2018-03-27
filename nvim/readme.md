@@ -1,8 +1,8 @@
 0. Dependencies:
-   * neovim   https://neovim.io/
-   * minpac:  https://github.com/k-takata/minpac
-   * ripgrep: https://github.com/BurntSushi/ripgrep
-   * fzf:     https://github.com/junegunn/fzf
+   * neovim   https://neovim.io/ (appimage, and ln -s it from /usr/local/bin)
+   * minpac:  https://github.com/k-takata/minpac (clone the repo)
+   * ripgrep: https://github.com/BurntSushi/ripgrep (cargo install)
+   * fzf:     https://github.com/junegunn/fzf (git install method works fine)
 
 1. Create spellfile: `~/Dropbox/vimspell/en.utf-8.add`.
    Or use another location. Change location in `autoload/mappings.vim`.
@@ -11,4 +11,13 @@
    Define in `plugins.vim`.
 
 3. `sudo ln -s ~/dotfiles/nvim/init.vim ~/.config/nvim/init.vim`
+
+4. For python-based plugins
+
+  `sudo apt-get install python-dev python-pip python3-dev python3-pip`
+
+And then...
+
+  `pip install --user neovim`
+  `pip3 install --user neovim`
 

@@ -5,7 +5,6 @@ build/
 .circleci/
 coverage/
 dist/
-docs/
 fonts/
 .git/
 .github/

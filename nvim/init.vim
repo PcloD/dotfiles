@@ -94,10 +94,6 @@ function! LinterStatus() abort
   return l:counts.total == 0 ? '  ✔  ' : printf('  PROBLEMS: %s  ', counts.total)
 endfunction
 
-function! GitBranchStatus()
-  return fugitive#head() == "" ? "" : printf("⎇ [ %s ]", fugitive#head())
-endfunction
-
 set statusline=
 set statusline+=%#StatusLineNC#
 set statusline+=\ 
@@ -107,7 +103,6 @@ set statusline+=%=[line:\ %l/%L][col:\ %03c]
 set tabline=%#Question#
 set tabline+=%{LinterStatus()}
 set tabline+=%=
-set tabline+=%{GitBranchStatus()}
 
 " ============================== SETTINGS ==============================
 
@@ -147,7 +142,6 @@ set number
 set path+=src
 set scrolloff=10
 set shiftwidth=2
-set shortmess=I
 set showtabline=2
 set softtabstop=2
 set spelllang=en_us
