@@ -140,7 +140,6 @@ set number
 set path+=src
 set scrolloff=10
 set shiftwidth=2
-set shortmess=I
 set showtabline=2
 set softtabstop=2
 set spelllang=en_us
