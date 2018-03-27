@@ -84,6 +84,8 @@ command! MRU call fzf#run({
 \  'options': '-m -x +s',
 \  'down':    '40%'})
 
+" ============================== FZF/RIPGREP
+let g:ale_lint_on_text_changed = 'never'
 
 " ============================== STATUS LINE ==============================
 
@@ -207,6 +209,11 @@ nnoremap ,rr :%s//g<Left><Left>
 " fzf (see fzf under plugins)
 nnoremap ,f :Files<CR>
 nnoremap ,a :Find 
+" function! Rip(search)
+"   call fzf#vim#grep("rg " . a:search, 1)
+" endfunctio"n
+
+" nnoremap ,a :call fzf#vim#grep("rg ", 1)<Left><Left><Left><Left><Left>
 nnoremap ,F :FindCurrent<CR>
 nnoremap ,b :Buffers<CR>
 nnoremap ,of :MRU<CR>
