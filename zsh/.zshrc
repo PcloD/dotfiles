@@ -1,8 +1,15 @@
 # let's export some shit
-export PATH=$PATH:/usr/local/go/bin:/snap/bin
 export ZSH=~/.oh-my-zsh
+export PATH=$PATH:/usr/local/go/bin:/snap/bin
 export PGDATA="/usr/local/pgsql/data"
 export TERM=xterm-256color
+
+# misc shit
+DISABLE_AUTO_TITLE="true"
+
+plugins=(
+  git
+)
 
 # let's source some shit!
 source $ZSH/oh-my-zsh.sh
@@ -12,13 +19,6 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.notarize_aliases ] && source ~/.notarize_aliases
 source ~/.prompt.zsh
 source ~/.aliases
-
-# misc shit
-DISABLE_AUTO_TITLE="true"
-
-plugins=(
-  git
-)
 
 # Vim shit
 export VISUAL=nvim
