@@ -18,6 +18,8 @@ call minpac#add('tpope/vim-repeat')                   " lets some commands repea
 call minpac#add('sheerun/vim-polyglot')               " language support. do I really need this?
 call minpac#add('w0rp/ale')                           " linting
 call minpac#add('morhetz/gruvbox')                    " color scheme
+call minpac#add('francoiscabrol/ranger.vim')
+call minpac#add('rbgrouleff/bclose.vim')
 
 " ============================== MINPAC
 function! MinpacReset()
@@ -164,6 +166,11 @@ let mapleader = " "
 
 " pseudo-leader , mappings
 
+" tabs
+nnoremap tn :tabnext<CR>
+nnoremap tp :tabprev<CR>
+nnoremap tt :tabnew<CR>
+
 " save/open/remove session
 nnoremap ,ss :mksession! ~/.config/nvim/sessions/
 nnoremap ,os :source ~/.config/nvim/sessions/
@@ -262,8 +269,11 @@ nnoremap <S-Tab> :bprev<CR>
 nnoremap <BS> :b#<CR>
 
 " open netrw in current dir
-nnoremap ,, :Explore .<CR>
-nnoremap - :Explore<CR>
+" nnoremap ,, :Explore .<CR>
+" nnoremap - :Explore<CR>
+nnoremap ,, :RangerWorkingDirectory<CR>
+nnoremap - :Ranger<CR>
+let g:ranger_replace_netrw = 1
 
 
 " ============================== COMMANDS ==============================
