@@ -30,10 +30,6 @@ alias vi="nvim"
 export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
 alias fzp="fzf --preview='cat {}'"
 
-# nvm shit
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # rbenv shit
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -44,3 +40,8 @@ bindkey '^P' up-history
 bindkey '^N' down-history
 export KEYTIMEOUT=1
 
+# nvm shit
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+export GOPATH="$HOME/go"
