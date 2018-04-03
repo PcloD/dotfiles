@@ -20,6 +20,7 @@ call minpac#add('w0rp/ale')                           " linting
 call minpac#add('morhetz/gruvbox')                    " color scheme
 call minpac#add('francoiscabrol/ranger.vim')
 call minpac#add('rbgrouleff/bclose.vim')
+call minpac#add('fatih/vim-go')
 
 " ============================== MINPAC
 function! MinpacReset()
@@ -95,16 +96,13 @@ function! LinterStatus() abort
   let l:counts = ale#statusline#Count(bufnr(''))
   return l:counts.total == 0 ? '  ✔  ' : printf('  PROBLEMS: %s  ', counts.total)
 endfunction
-
 set statusline=
+set statusline=%#Question#
+set statusline+=%{LinterStatus()}
 set statusline+=%#StatusLineNC#
-set statusline+=\ 
 set statusline+=[%n]\ %f\ %m%r
 set statusline+=%=[line:\ %l/%L][col:\ %03c]
 
-set tabline=%#Question#
-set tabline+=%{LinterStatus()}
-set tabline+=%=
 
 " ============================== SETTINGS ==============================
 
@@ -248,6 +246,7 @@ nmap <silent> ,es <Plug>(ale_next_wrap)
 
 " run make
 nnoremap <F5> :wa<CR>:make<CR>
+inoremap <F5> <Esc>:wa<CR>:make<CR>
 
 " this only gets hit by accident
 nnoremap Q <Nop>
@@ -274,7 +273,6 @@ nnoremap <BS> :b#<CR>
 nnoremap ,, :RangerWorkingDirectory<CR>
 nnoremap - :Ranger<CR>
 let g:ranger_replace_netrw = 1
-
 
 " ============================== COMMANDS ==============================
 
