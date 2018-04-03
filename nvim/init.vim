@@ -103,7 +103,6 @@ set statusline+=%#StatusLineNC#
 set statusline+=[%n]\ %f\ %m%r
 set statusline+=%=[line:\ %l/%L][col:\ %03c]
 
-
 " ============================== SETTINGS ==============================
 
 filetype plugin indent on
@@ -142,7 +141,7 @@ set number
 set path+=src
 set scrolloff=10
 set shiftwidth=2
-set showtabline=2
+set showtabline=0
 set softtabstop=2
 set spelllang=en_us
 set spellfile=~/Dropbox/vimspell/en.utf-8.add
