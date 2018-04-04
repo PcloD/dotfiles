@@ -8,7 +8,7 @@ function zle-line-init zle-keymap-select {
   NORMAL_MODE="%{$fg[red]%}[VIM]%{$reset_color%}"
   INSERT_MODE="%{$fg[green]%}[ZSH]%{$reset_color%}"
   MODE_PROMPT="${${KEYMAP/vicmd/$NORMAL_MODE}/(main|viins)/$INSERT_MODE}"
-  PATH_PROMPT="%{$fg[yellow]%}[%~]%{$reset_color%}"
+  PATH_PROMPT="%{$fg[yellow]%}[%m %~]%{$reset_color%}"
   GIT_PROMPT=$(git_prompt_info)
   COMMAND_PROMPT="%{$fg[blue]%}%#%{$reset_color%} "
 
