@@ -259,11 +259,6 @@ nnoremap k gk
 nnoremap 0 ^
 nnoremap ^ 0
 
-" next/prev buffer
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprev<CR>
-nnoremap <BS> :b#<CR>
-
 " open netrw in current dir
 " nnoremap ,, :Explore .<CR>
 " nnoremap - :Explore<CR>
