@@ -12,6 +12,7 @@ alias ez="vim ~/.zshrc"
 alias lp="fzf --preview='cat {}' --preview-window=right:70%:wrap +x"
 alias cdc="cd ; clear"
 alias ,q="exit"
+alias vm="ssh 127.0.0.1 -p 3022"
 
 # tmux
 alias tmuxx="tmux attach -t main || tmux new -s main"

@@ -1,8 +1,10 @@
 # let's export some shit
 export ZSH=~/.oh-my-zsh
-export PATH=$PATH:/usr/local/go/bin:/snap/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export PGDATA="/usr/local/pgsql/data"
 export TERM=xterm-256color
+export GOPATH="$HOME/go"
+export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin
 
 # misc shit
 DISABLE_AUTO_TITLE="true"
@@ -40,8 +42,10 @@ bindkey '^P' up-history
 bindkey '^N' down-history
 export KEYTIMEOUT=1
 
+# direnv shit
+eval "$(direnv hook zsh)"
+
 # nvm shit
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export GOPATH="$HOME/go"
