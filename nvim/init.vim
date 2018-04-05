@@ -125,6 +125,7 @@ set background=dark
 set backspace=indent,eol,start
 set clipboard^=unnamedplus
 set colorcolumn=120
+set cursorline
 set expandtab
 set hidden
 set hlsearch
