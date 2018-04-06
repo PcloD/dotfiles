@@ -251,6 +251,9 @@ inoremap <F5> <Esc>:wa<CR>:make<CR>
 " this only gets hit by accident
 nnoremap Q <Nop>
 
+" kill all windows but current
+nnoremap ,x :only<CR>
+
 " redo
 nnoremap U <C-r>
 
