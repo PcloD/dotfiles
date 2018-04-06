@@ -1,25 +1,24 @@
 # let's export some shit
-export ZSH=~/.oh-my-zsh
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export PGDATA="/usr/local/pgsql/data"
 export TERM=xterm-256color
 export GOPATH="$HOME/go"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin
 
-# misc shit
-DISABLE_AUTO_TITLE="true"
-
-plugins=(
-  git
-)
+# let's antigen some shit
+# not sure if this is better than flat out oh-my-zsh, but at least I know exactly what's loading now.
+# see if I can evantually get rid of some of this. ideally, all done manually without any oh-my shit
+source ~/antigen.zsh
+antigen use oh-my-zsh
+antigen bundle git
+antigen apply
+source ~/.prompt.zsh
 
 # let's source some shit!
-source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 [ -f ~/.weblaunchers ] && source ~/.weblaunchers
 [ -f ~/.notarize_aliases ] && source ~/.notarize_aliases
-source ~/.prompt.zsh
 source ~/.aliases
 
 # Vim shit
