@@ -117,6 +117,9 @@ colorscheme gruvbox
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign='left'
 
+" vim-go
+let g:go_fmt_command = "goimports"
+
 let g:netrw_banner=0
 
 set autoindent
@@ -164,10 +167,8 @@ let mapleader = " "
 
 " pseudo-leader , mappings
 
-" tabs
-nnoremap tn :tabnext<CR>
-nnoremap tp :tabprev<CR>
-nnoremap tt :tabnew<CR>
+nnoremap <C-Left> :bp<CR>
+nnoremap <C-Right> :bn<CR>
 
 " save/open/remove session
 nnoremap ,ss :mksession! ~/.config/nvim/sessions/
@@ -245,8 +246,8 @@ nmap <silent> ,es <Plug>(ale_next_wrap)
 " non-leader mappings ==========
 
 " run make
-nnoremap <F5> :wa<CR>:make<CR>
-inoremap <F5> <Esc>:wa<CR>:make<CR>
+nnoremap <F5> :wa<CR>:silent make<CR>
+inoremap <F5> <Esc>:wa<CR>:silent make<CR>
 
 " this only gets hit by accident
 nnoremap Q <Nop>
