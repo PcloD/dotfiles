@@ -2,7 +2,7 @@
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 export PGDATA="/usr/local/pgsql/data"
 export TERM=xterm-256color
-export GOPATH="$HOME/go"
+export GOPATH="$HOME/keith/go"
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin
 
 # let's antigen some shit

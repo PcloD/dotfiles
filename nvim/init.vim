@@ -108,6 +108,9 @@ set statusline+=%=[line:\ %l/%L][col:\ %03c]
 filetype plugin indent on
 syntax on
 
+" vim-go
+let g:go_fmt_command = "goimports"
+
 " colorscheme
 let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_contrast_light="hard"
