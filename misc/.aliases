@@ -20,6 +20,11 @@ alias weather="curl wttr.in/boston"
 alias tmuxx="tmux attach -t main || tmux new -s main"
 alias tmuxnames="tmux_name_windows"
 
+install_bitlib() {
+  go get github.com/ungerik/go-cairo
+  go get github.com/bit101/bitlibgo
+}
+
 tmux_name_windows() {
   tmux rename-window -t 0 "web-zsh"
   tmux rename-window -t 1 "web-vim"

@@ -1,5 +1,5 @@
 # let's export some shit
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin
 export PGDATA="/usr/local/pgsql/data"
 export TERM=xterm-256color
 export GOPATH="$HOME/go"
