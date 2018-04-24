@@ -1,10 +1,8 @@
 " ============================== PLUGINS ==============================
-
 packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})   " package management
 call minpac#add('airblade/vim-gitgutter')             " git
-call minpac#add('tpope/vim-fugitive')                 " git
 call minpac#add('junegunn/goyo.vim')                  " prose writing
 call minpac#add('junegunn/limelight.vim')             " prose writing
 call minpac#add('tpope/vim-commentary')               " commenting
@@ -120,6 +118,9 @@ colorscheme gruvbox
 let g:NERDSpaceDelims=1
 let g:NERDDefaultAlign='left'
 
+" vim-go
+let g:go_fmt_command = "goimports"
+
 let g:netrw_banner=0
 
 set autoindent
@@ -167,74 +168,36 @@ let mapleader = " "
 
 " pseudo-leader , mappings
 
-" tabs
-nnoremap tn :tabnext<CR>
-nnoremap tp :tabprev<CR>
-nnoremap tt :tabnew<CR>
-
-" save/open/remove session
+" session save/open/remove
 nnoremap ,ss :mksession! ~/.config/nvim/sessions/
-nnoremap ,os :source ~/.config/nvim/sessions/
-nnoremap ,rs :!rm ~/.config/nvim/sessions/
+nnoremap ,so :source ~/.config/nvim/sessions/
+nnoremap ,sr :!rm ~/.config/nvim/sessions/
 
-" delete buffer
-nnoremap ,d :bd<CR>
-
-" delete all buffers
-nnoremap ,D :bd <C-a><CR>
-
-" capitalize current word
-nnoremap ,U mqviwU`q
-
-" lower case current word
-nnoremap ,u mqviwUviw~`q
-
-" edit .vimrc etc.
+" edit/save .vimrc
 nnoremap ,ev :e ~/.config/nvim/init.vim<CR>
 nnoremap ,sv :so ~/.config/nvim/init.vim<CR>
 
-" npm
-nnoremap ,n :!npm run 
-
-" reload
-nnoremap ,R :e!<CR>
-
-" goyo mode
-nnoremap ,gy :Goyo<CR>
-
-" find and replace word under cursor
-nnoremap ,rw :%s/<c-r><c-w>//g<left><left>
-
+" Search Stuff, largely fzf powered ==========
 " find and replace word
-nnoremap ,rr :%s//g<Left><Left>
-
-" fzf (see fzf under plugins)
-nnoremap ,f :Files<CR>
-nnoremap ,a :Find 
-" function! Rip(search)
-"   call fzf#vim#grep("rg " . a:search, 1)
-" endfunctio"n
-
-" nnoremap ,a :call fzf#vim#grep("rg ", 1)<Left><Left><Left><Left><Left>
-nnoremap ,F :FindCurrent<CR>
+nnoremap ,fr :%s//g<Left><Left>
+" find file
+nnoremap ,ff :Files<CR>
+" find current
+nnoremap ,fc :FindCurrent<CR>
+" find fuzzy
+nnoremap ,fz :Find 
+" find buffer
 nnoremap ,b :Buffers<CR>
-nnoremap ,of :MRU<CR>
+" End search section =========
 
 " git
-nnoremap ,gs :Gstatus<CR>
-nnoremap ,gb :Gblame<CR>
-nnoremap ,gd :Gdiff<CR>
-nnoremap ,gc :Gcommit<CR>
-nnoremap ,gp :Git push<CR>
+nnoremap ,gb :Blame<CR>
 
 " quit all
 nnoremap ,q :qa<CR>
 
 " quit without saving
 nnoremap ,Q :q!<CR>
-
-" no highlight
-nnoremap ,hh :nohlsearch<CR>
 
 " show invisible chars
 nnoremap ,l :set list!<CR>
@@ -248,8 +211,8 @@ nmap <silent> ,es <Plug>(ale_next_wrap)
 " non-leader mappings ==========
 
 " run make
-nnoremap <F5> :wa<CR>:make<CR>
-inoremap <F5> <Esc>:wa<CR>:make<CR>
+nnoremap <F5> :wa<CR>:silent make<CR>
+inoremap <F5> <Esc>:wa<CR>:silent make<CR>
 
 " this only gets hit by accident
 nnoremap Q <Nop>
@@ -269,8 +232,6 @@ nnoremap 0 ^
 nnoremap ^ 0
 
 " open netrw in current dir
-" nnoremap ,, :Explore .<CR>
-" nnoremap - :Explore<CR>
 nnoremap ,, :RangerWorkingDirectory<CR>
 nnoremap - :Ranger<CR>
 let g:ranger_replace_netrw = 1
@@ -283,6 +244,18 @@ command! SnakeToCamel normal mmviw:s/\%V_\(.\)/\U\1/g<CR>:nohlsearch<CR>`m
 " turn a camel into a snake
 command! CamelToSnake normal mmviw:s/\%V\(\u\)/_\L\1/g<CR>:nohlsearch<CR>`m
 
-" turn a function into a closure
-command! FuncToClosure normal :s/function/const/ef(i = f)a =>
+" custom git blame
+command! -nargs=* Blame call s:GitBlame()
+function! s:GitBlame()
+   let cmdline = "git blame --date=short -w " . bufname("%")
+   let nline = line(".")
+   botright new
+   setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+   execute "$read !" . cmdline
+   execute "normal gg"
+   execute "normal dd"
+   setlocal nomodifiable
+   execute "normal " . nline . "gg"
+   execute "set filetype=txt"
+endfunction
 
