@@ -2,9 +2,6 @@
 packadd minpac
 call minpac#init()
 call minpac#add('k-takata/minpac', {'type': 'opt'})   " package management
-call minpac#add('airblade/vim-gitgutter')             " git
-call minpac#add('junegunn/goyo.vim')                  " prose writing
-call minpac#add('junegunn/limelight.vim')             " prose writing
 call minpac#add('tpope/vim-commentary')               " commenting
 call minpac#add('ervandew/supertab')                  " tab completion
 call minpac#add('christoomey/vim-tmux-navigator')     " tmux integration
@@ -13,11 +10,9 @@ call minpac#add('bit101/bit-ultisnips')               " my snippets
 call minpac#add('junegunn/fzf')                       " fuzzy finder for file and text searching
 call minpac#add('junegunn/fzf.vim')                   " enhanced fzf integration
 call minpac#add('tpope/vim-repeat')                   " lets some commands repeat
-call minpac#add('sheerun/vim-polyglot')               " language support. do I really need this?
+" call minpac#add('sheerun/vim-polyglot')               " language support. do I really need this?
 call minpac#add('w0rp/ale')                           " linting
 call minpac#add('morhetz/gruvbox')                    " color scheme
-call minpac#add('francoiscabrol/ranger.vim')
-call minpac#add('rbgrouleff/bclose.vim')
 call minpac#add('fatih/vim-go')
 
 " ============================== MINPAC
@@ -27,65 +22,17 @@ function! MinpacReset()
 endfunction
 command! MinPac call MinpacReset()
  
-" ============================== LIMELIGHT/GOYO/SPELL
-let g:limelight_conceal_ctermfg = 240 
-augroup GoyoGroup
-  autocmd!
-  autocmd! User GoyoEnter call GoyoStart()
-  autocmd! User GoyoLeave call GoyoEnd()
-augroup END
-
-function! GoyoStart()
-  Limelight
-  set spell
-endfunction
-
-function! GoyoEnd()
-  Limelight!
-  set nospell
-endfunction
-
 " ============================== FZF/RIPGREP
 " ========== files
 let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 
 " ========== words
-command! -bang -nargs=* Find call fzf#vim#grep(
-\ 'rg --column
-\     --line-number
-\     --no-heading
-\     --ignore-case
-\     --hidden
-\     --follow
-\     --color
-\     "always" '
-\   .shellescape(<q-args>),
-\ 1,
-\ fzf#vim#with_preview('right:50%:wrap', '?'))
+command! -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview('right:50%', '?'))
 
-" ========== word under cursor
-command! -bang -nargs=* FindCurrent call fzf#vim#grep(
-\ 'rg --column
-\     --line-number
-\     --no-heading
-\     --fixed-strings
-\     --ignore-case
-\     --hidden
-\     --follow
-\     --color
-\     "always" '
-\   .shellescape(expand('<cword>')),
-\ 1,
-\ fzf#vim#with_preview('right:50%:wrap', '?'))
-
-" ========== most recently used files
-command! MRU call fzf#run({
-\  'source':  v:oldfiles,
-\  'sink':    'e',
-\  'options': '-m -x +s',
-\  'down':    '40%'})
-
-" ============================== FZF/RIPGREP
+" ============================== ALE
 let g:ale_lint_on_text_changed = 'never'
 
 " ============================== STATUS LINE ==============================
@@ -114,14 +61,8 @@ let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_contrast_light="hard"
 colorscheme gruvbox
 
-" NERDCommenter
-let g:NERDSpaceDelims=1
-let g:NERDDefaultAlign='left'
-
 " vim-go
 let g:go_fmt_command = "goimports"
-
-let g:netrw_banner=0
 
 set autoindent
 set autoread
@@ -144,7 +85,6 @@ set noswapfile
 set noshowmode
 set number
 set path+=src
-set scrolloff=10
 set shiftwidth=2
 set showtabline=0
 set softtabstop=2
@@ -166,7 +106,11 @@ augroup END
 " ============================== MAPPINGS ==============================
 let mapleader = " "
 
-" pseudo-leader , mappings
+" close buffer
+nnoremap ,d :bd<CR>
+
+" vert split
+nnoremap ,v :vs<CR>
 
 " session save/open/remove
 nnoremap ,ss :mksession! ~/.config/nvim/sessions/
@@ -177,27 +121,20 @@ nnoremap ,sr :!rm ~/.config/nvim/sessions/
 nnoremap ,ev :e ~/.config/nvim/init.vim<CR>
 nnoremap ,sv :so ~/.config/nvim/init.vim<CR>
 
-" Search Stuff, largely fzf powered ==========
 " find and replace word
 nnoremap ,fr :%s//g<Left><Left>
 " find file
 nnoremap ,ff :Files<CR>
-" find current
-nnoremap ,fc :FindCurrent<CR>
 " find fuzzy
-nnoremap ,fz :Find 
+nnoremap ,fg :Rg 
 " find buffer
 nnoremap ,b :Buffers<CR>
-" End search section =========
 
 " git
 nnoremap ,gb :Blame<CR>
 
 " quit all
 nnoremap ,q :qa<CR>
-
-" quit without saving
-nnoremap ,Q :q!<CR>
 
 " show invisible chars
 nnoremap ,l :set list!<CR>
@@ -208,17 +145,22 @@ nnoremap ,sa ggVG
 " ALE next error
 nmap <silent> ,es <Plug>(ale_next_wrap)
 
+" kill all windows but current
+nnoremap ,x :only<CR>
+
+" close quickfix
+nnoremap ,cc :cclose<CR>
+
 " non-leader mappings ==========
 
 " run make
 nnoremap <F5> :wa<CR>:silent make<CR>
 inoremap <F5> <Esc>:wa<CR>:silent make<CR>
+nnoremap <F6> :wa<CR>:silent make clean<CR>
 
-" this only gets hit by accident
+" these only get hit by accident
 nnoremap Q <Nop>
-
-" kill all windows but current
-nnoremap ,x :only<CR>
+nnoremap q: <Nop>
 
 " redo
 nnoremap U <C-r>
@@ -231,10 +173,10 @@ nnoremap k gk
 nnoremap 0 ^
 nnoremap ^ 0
 
-" open netrw in current dir
-nnoremap ,, :RangerWorkingDirectory<CR>
-nnoremap - :Ranger<CR>
-let g:ranger_replace_netrw = 1
+" explore project dir
+nnoremap ,, :Explore .<CR>
+" explore dir of current buffer
+nnoremap - :Explore<CR>
 
 " ============================== COMMANDS ==============================
 
