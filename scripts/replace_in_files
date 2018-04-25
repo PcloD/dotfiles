@@ -1,0 +1,5 @@
+// linux version (needs testing)
+find . -name '*.txt' -print0 | xargs -0 sed -i 's/foo/bar/g'
+
+// mac version (verified)
+find . -name '*.txt' -print0 | xargs -0 sed -i '' 's/foo/bar/g'
