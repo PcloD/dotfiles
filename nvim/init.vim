@@ -178,6 +178,9 @@ nnoremap ,, :Explore .<CR>
 " explore dir of current buffer
 nnoremap - :Explore<CR>
 
+" go to file using index.js if path is dir
+nnoremap gf :call GfIndex('<C-r><C-p>')<CR>
+
 " ============================== COMMANDS ==============================
 
 " turn a snake into a camel
@@ -201,3 +204,12 @@ function! s:GitBlame()
    execute "set filetype=txt"
 endfunction
 
+" go to file using index.js if path is dir
+function! GfIndex(filepath)
+  let indexpath = a:filepath . "/index.js"
+  if isdirectory(a:filepath) && filereadable(indexpath)
+    execute "edit" indexpath
+  else
+    execute "edit" a:filepath
+  endif
+endfunction

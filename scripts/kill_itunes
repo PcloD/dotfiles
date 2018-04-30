@@ -1,0 +1,3 @@
+https://www.howtogeek.com/274345/stop-itunes-from-launching-when-you-press-play-on-your-macs-keyboard/
+
+launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist
