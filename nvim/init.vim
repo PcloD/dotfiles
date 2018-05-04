@@ -54,7 +54,7 @@ filetype plugin indent on
 syntax on
 
 " vim-go
-let g:go_fmt_command = "goimports"
+" let g:go_fmt_command = "goimports"
 
 " colorscheme
 let g:gruvbox_contrast_dark="hard"
@@ -70,7 +70,6 @@ set background=dark
 set backspace=indent,eol,start
 set clipboard^=unnamedplus
 set colorcolumn=120
-set cursorline
 set expandtab
 set hidden
 set hlsearch
@@ -102,6 +101,10 @@ augroup ReloadGroup
   autocmd! FocusGained,BufEnter * checktime
 augroup END
 
+" =========== cursorline
+hi CursorLine ctermfg=NONE ctermbg=NONE
+hi CursorLineNR ctermfg=black ctermbg=yellow
+set cursorline
 
 " ============================== MAPPINGS ==============================
 let mapleader = " "
@@ -138,6 +141,9 @@ nnoremap ,q :qa<CR>
 
 " show invisible chars
 nnoremap ,l :set list!<CR>
+
+" no highlights
+nnoremap ,hh :noh<CR>
 
 " select all
 nnoremap ,sa ggVG

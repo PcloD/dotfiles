@@ -15,6 +15,7 @@ alias ,q="exit"
 alias vm="ssh 127.0.0.1 -p 3022"
 alias sudovim="sudo -e"
 alias weather="curl wttr.in/boston"
+alias ypl="yarn --pure-lockfile"
 
 # tmux
 alias tmuxx="tmux attach -t main || tmux new -s main"
