@@ -16,6 +16,9 @@ alias vm="ssh 127.0.0.1 -p 3022"
 alias sudovim="sudo -e"
 alias weather="curl wttr.in/boston"
 
+# ignore stupid eog errors
+alias eog="eog 2>/dev/null "
+
 # tmux
 alias tmuxx="tmux attach -t main || tmux new -s main"
 alias tmuxnames="tmux_name_windows"
