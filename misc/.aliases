@@ -17,6 +17,9 @@ alias sudovim="sudo -e"
 alias weather="curl wttr.in/boston"
 alias ypl="yarn --pure-lockfile"
 
+# ignore stupid eog errors
+alias eog="eog 2>/dev/null "
+
 # tmux
 alias tmuxx="tmux attach -t main || tmux new -s main"
 alias tmuxnames="tmux_name_windows"
