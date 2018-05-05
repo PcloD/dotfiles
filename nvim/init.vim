@@ -160,9 +160,9 @@ nnoremap ,cc :cclose<CR>
 " non-leader mappings ==========
 
 " run make
-nnoremap <F5> :wa<CR>:silent make<CR>
-inoremap <F5> <Esc>:wa<CR>:silent make<CR>
-nnoremap <F6> :wa<CR>:silent make clean<CR>
+nnoremap <silent> <F5> :wa<CR>:silent make<CR>
+inoremap <silent> <F5> <Esc>:wa<CR>:silent make<CR>
+nnoremap <silent> <F6> :wa<CR>:silent make clean<CR>
 
 " these only get hit by accident
 nnoremap Q <Nop>

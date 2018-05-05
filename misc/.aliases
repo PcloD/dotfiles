@@ -58,3 +58,4 @@ toggle_repeat() {
 }
 
 alias hexo_drafts="ag title source/_drafts --no-filename"
+

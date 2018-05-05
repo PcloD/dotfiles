@@ -1,0 +1,18 @@
+#! /bin/bash
+
+# if tmux pane 1 exists, sends arg1 to it
+# if not, splits window and sends arg1 to pane 1
+# assumptions:
+# A. you are in pane 0
+# B. pane 1 does not exist, or...
+# C. pane 1 exist and is a terminal ready to receive commands
+# D. your tmux is configured to open a new pane in the same dir as existing.
+
+tmux list-panes | grep 1: > /dev/null
+ST=$?
+if [ $ST == 1 ]; then
+  # no pane 1, create it, and then put focus back on pane 0.
+  tmux split-window -h -p 25
+  tmux select-pane -t 0
+fi
+tmux send-keys -t 1 "$1" C-m
