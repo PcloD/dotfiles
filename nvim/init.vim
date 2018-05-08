@@ -29,7 +29,7 @@ let $FZF_DEFAULT_COMMAND = 'rg --files --hidden'
 " ========== words
 command! -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   'rg --column --line-number --no-heading --ignore-case --color=always '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview('right:50%', '?'))
 
 " ============================== ALE
