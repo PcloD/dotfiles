@@ -1,0 +1,9 @@
+#! /bin/bash
+
+OS=$(uname -s)
+if [ $OS == "Darwin" ]; then
+  # default to open. hopefully find a good lightweight image viewer for macos.
+  open $1 2>/dev/null
+elif [ $OS == "Linux" ]; then
+  eog $1 2>/dev/null
+fi
