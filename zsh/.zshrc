@@ -20,7 +20,7 @@ source ~/.prompt.zsh
 [ -f ~/.cargo/env ] && source ~/.cargo/env
 [ -f ~/.weblaunchers ] && source ~/.weblaunchers
 [ -f ~/.notarize_aliases ] && source ~/.notarize_aliases
-[ -f ~/z ] && source ~/z/z.sh
+source ~/z/z.sh
 source ~/.aliases
 
 # Vim shit
