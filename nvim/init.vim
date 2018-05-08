@@ -163,6 +163,7 @@ nnoremap ,cc :cclose<CR>
 nnoremap <silent> <F5> :wa<CR>:silent make<CR>
 inoremap <silent> <F5> <Esc>:wa<CR>:silent make<CR>
 nnoremap <silent> <F6> :wa<CR>:silent make clean<CR>
+nnoremap <silent> <F7> :wa<CR>:silent make launch<CR>
 
 " these only get hit by accident
 nnoremap Q <Nop>
