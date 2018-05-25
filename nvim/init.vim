@@ -14,6 +14,7 @@ call minpac#add('tpope/vim-repeat')                   " lets some commands repea
 call minpac#add('w0rp/ale')                           " linting
 call minpac#add('morhetz/gruvbox')                    " color scheme
 call minpac#add('fatih/vim-go')
+call minpac#add('tpope/vim-fugitive')                 " git
 
 " ============================== MINPAC
 function! MinpacReset()
@@ -134,7 +135,7 @@ nnoremap ,fg :Rg
 nnoremap ,b :Buffers<CR>
 
 " git
-nnoremap ,gb :Blame<CR>
+nnoremap ,gb :GBlame<CR>
 
 " quit all
 nnoremap ,q :qa<CR>
