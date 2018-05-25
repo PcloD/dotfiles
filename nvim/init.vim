@@ -112,6 +112,8 @@ let mapleader = " "
 
 " close buffer
 nnoremap ,d :bd<CR>
+" close all buffers
+nnoremap ,D :%bd<CR>
 
 " vert split
 nnoremap ,v :vs<CR>
@@ -135,7 +137,7 @@ nnoremap ,fg :Rg
 nnoremap ,b :Buffers<CR>
 
 " git
-nnoremap ,gb :GBlame<CR>
+nnoremap ,gb :Gblame<CR>
 
 " quit all
 nnoremap ,q :qa<CR>
