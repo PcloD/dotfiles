@@ -113,6 +113,8 @@ let mapleader = " "
 
 " close buffer
 nnoremap ,d :bd<CR>
+" close all buffers
+nnoremap ,D :%bd<CR>
 
 " vert split
 nnoremap ,v :vs<CR>
