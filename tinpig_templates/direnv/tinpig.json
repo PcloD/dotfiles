@@ -1,0 +1,6 @@
+{
+  "name": "direnv go",
+  "description": "Creates a .envrc file that exports pwd as GOPATH. For use with the 'direnv' tool and Go development.",
+  "author": "Keith Peters",
+  "contact": "https://github.com/bit101"
+}

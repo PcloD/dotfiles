@@ -1,0 +1,6 @@
+{
+  "name": "GoWorkspace",
+  "description": "Creates a Go workspace with a .envrc file (for direnv), a src folder and main binary file.",
+  "author": "Keith Peters",
+  "contact": "https://github.com/bit101"
+}

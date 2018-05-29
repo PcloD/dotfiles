@@ -7,6 +7,8 @@ call minpac#add('ervandew/supertab')                  " tab completion
 call minpac#add('christoomey/vim-tmux-navigator')     " tmux integration
 call minpac#add('SirVer/ultisnips')                   " snippets
 call minpac#add('bit101/bit-ultisnips')               " my snippets
+call minpac#add('tpope/vim-fugitive')                 " git
+call minpac#add('junegunn/goyo.vim')                  " goyo
 call minpac#add('junegunn/fzf')                       " fuzzy finder for file and text searching
 call minpac#add('junegunn/fzf.vim')                   " enhanced fzf integration
 call minpac#add('tpope/vim-repeat')                   " lets some commands repeat
@@ -134,7 +136,10 @@ nnoremap ,fg :Rg
 nnoremap ,b :Buffers<CR>
 
 " git
-nnoremap ,gb :Blame<CR>
+nnoremap ,gb :Gblame<CR>
+
+" goyo
+nnoremap ,gy :Goyo<CR>
 
 " quit all
 nnoremap ,q :qa<CR>
@@ -195,21 +200,6 @@ command! SnakeToCamel normal mmviw:s/\%V_\(.\)/\U\1/g<CR>:nohlsearch<CR>`m
 
 " turn a camel into a snake
 command! CamelToSnake normal mmviw:s/\%V\(\u\)/_\L\1/g<CR>:nohlsearch<CR>`m
-
-" custom git blame
-command! -nargs=* Blame call s:GitBlame()
-function! s:GitBlame()
-   let cmdline = "git blame --date=short -w " . bufname("%")
-   let nline = line(".")
-   botright new
-   setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-   execute "$read !" . cmdline
-   execute "normal gg"
-   execute "normal dd"
-   setlocal nomodifiable
-   execute "normal " . nline . "gg"
-   execute "set filetype=txt"
-endfunction
 
 " go to file using index.js if path is dir
 function! GfIndex(filepath)

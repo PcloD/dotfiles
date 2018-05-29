@@ -3,7 +3,7 @@ export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin
 export PGDATA="/usr/local/pgsql/data"
 export TERM=xterm-256color
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin
-export GOPATH="$HOME/keith/go"
+export GOPATH="$HOME/go"
 
 # let's antigen some shit
 # not sure if this is better than flat out oh-my-zsh, but at least I know exactly what's loading now.
