@@ -8,7 +8,7 @@ const width = 400.0
 const height = 400.0
 
 func main() {
-	surface := blg.NewSurface(400, 400)
+	surface := blgo.NewSurface(width, height)
 
 	surface.WriteToPNG("out.png")
 }

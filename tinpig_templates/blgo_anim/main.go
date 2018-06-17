@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/bit101/blg"
-	"github.com/bit101/blg/anim"
-	"github.com/bit101/blg/random"
-	"github.com/bit101/blg/util"
+	"github.com/bit101/blgo"
+	"github.com/bit101/blgo/anim"
+	"github.com/bit101/blgo/random"
+	"github.com/bit101/blgo/util"
 )
 
 const timeInSeconds = 5
@@ -22,7 +22,7 @@ func main() {
 	util.ViewImage(outFileName)
 }
 
-func render(surface *blg.Surface, percent float64) {
+func render(surface *blgo.Surface, percent float64) {
 	surface.ClearRGB(1, 1, 1)
 	surface.SetSourceRGB(0, 0, 1)
 	for i := 0; i < 100; i++ {

@@ -1,5 +1,5 @@
 default:
-	tmux_send "make build"
+	@tmux_send "make build"
 
 build: clean
 	@go build main.go
