@@ -1,5 +1,5 @@
 # export some shit
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.nvm/versions/node/v8.11.3/bin
 export TERM=xterm-256color
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin
 export GOPATH="$HOME/go"
@@ -39,12 +39,12 @@ export KEYTIMEOUT=1
 eval "$(direnv hook zsh)"
 
 # linux shit
-if [[ $CURRENT_OS == 'Linux' ]]; then
+if [[ `uname` == 'Linux' ]]; then
   setxkbmap -option caps:escape
 fi
 
 # notarize shit
-if [[ $CURRENT_OS == 'OS X' ]]; then
+if [[ `uname` == 'Darwin' ]]; then
   [ -f ~/.weblaunchers ] && source ~/.weblaunchers
   [ -f ~/.notarize_aliases ] && source ~/.notarize_aliases
   export PGDATA="/usr/local/pgsql/data"
