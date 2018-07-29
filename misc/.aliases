@@ -16,6 +16,7 @@ alias vm="ssh 127.0.0.1 -p 3022"
 alias sudovim="sudo -e"
 alias weather="curl wttr.in/boston"
 alias ypl="yarn --pure-lockfile"
+alias caps="setxkbmap -option caps:escape"
 
 # ignore stupid eog errors
 alias eog="eog 2>/dev/null "
