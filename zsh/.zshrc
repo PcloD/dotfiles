@@ -22,7 +22,7 @@ alias vim="nvim"
 alias vi="nvim"
 
 # fzf shit
-# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # do i need this?
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh # do i need this?
 export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
 
 # rbenv shit

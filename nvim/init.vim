@@ -22,7 +22,7 @@ function! MinpacReset()
   call minpac#update()
   call minpac#clean()
 endfunction
-command! MinPac call MinpacReset()
+command! Minpac call MinpacReset()
  
 " ============================== FZF/RIPGREP
 " ========== files
@@ -199,7 +199,7 @@ nnoremap gf :call GfIndex('<C-r><C-p>')<CR>
 
 " turn a snake into a camel
 command! SnakeToCamel normal mmviw:s/\%V_\(.\)/\U\1/g<CR>:nohlsearch<CR>`m
-
+nnoremap ,k :SnakeToCamel<CR>
 " turn a camel into a snake
 command! CamelToSnake normal mmviw:s/\%V\(\u\)/_\L\1/g<CR>:nohlsearch<CR>`m
 
