@@ -168,6 +168,9 @@ nnoremap ,cc :cclose<CR>
 
 " non-leader mappings ==========
 
+" terminal normal mode
+tnoremap <Esc> <C-\><C-n>
+
 " run make
 nnoremap <silent> <F5> :wa<CR>:silent make<CR>
 inoremap <silent> <F5> <Esc>:wa<CR>:silent make<CR>
