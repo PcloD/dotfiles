@@ -1,3 +1,5 @@
 default:
-	@go build main.go
-	@/main
+	tmux_send "make build"
+
+build:
+	@go run main.go
