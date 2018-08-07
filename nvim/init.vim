@@ -68,6 +68,7 @@ let g:go_fmt_command = "goimports"
 
 set autoindent
 set autoread
+set autowrite
 set background=dark
 set backspace=indent,eol,start
 set clipboard^=unnamedplus
@@ -156,7 +157,8 @@ nnoremap ,hh :noh<CR>
 nnoremap ,sa ggVG
 
 " ALE next error
-nmap <silent> ,es <Plug>(ale_next_wrap)
+nmap <silent> <C-n> <Plug>(ale_next_wrap)
+nmap <silent> <C-p> <Plug>(ale_previous_wrap)
 
 " kill all windows but current
 nnoremap ,x :only<CR>
