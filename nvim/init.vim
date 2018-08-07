@@ -195,7 +195,7 @@ nnoremap ,, :Explore .<CR>
 nnoremap - :Explore<CR>
 
 " go to file using index.js if path is dir
-nnoremap gf :call GfIndex('<C-r><C-p>')<CR>
+nnoremap gf yi":call GfIndex('<C-r>"')<CR>
 
 " ============================== COMMANDS ==============================
 
@@ -207,9 +207,15 @@ command! CamelToSnake normal mmviw:s/\%V\(\u\)/_\L\1/g<CR>:nohlsearch<CR>`m
 
 " go to file using index.js if path is dir
 function! GfIndex(filepath)
-  let indexpath = a:filepath . "/index.js"
-  if isdirectory(a:filepath) && filereadable(indexpath)
-    execute "edit" indexpath
+  let indexPath = a:filepath . "/index.js"
+  if isdirectory(a:filepath) && filereadable(indexPath)
+    execute "edit" path
+  elseif isdirectory("src/" . a:filepath) && filereadable("src/" . indexPath)
+    execute "edit" "src/" . indexPath
+  elseif filereadable(a:filepath . ".js")
+    execute "edit" a:filepath . ".js"
+  elseif filereadable("src/" . a:filepath . ".js")
+    execute "edit" "src/" . a:filepath . ".js"
   else
     execute "edit" a:filepath
   endif
