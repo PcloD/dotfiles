@@ -12,10 +12,10 @@ call minpac#add('junegunn/goyo.vim')                  " goyo
 call minpac#add('junegunn/fzf')                       " fuzzy finder for file and text searching
 call minpac#add('junegunn/fzf.vim')                   " enhanced fzf integration
 call minpac#add('tpope/vim-repeat')                   " lets some commands repeat
-" call minpac#add('sheerun/vim-polyglot')               " language support. do I really need this?
 call minpac#add('w0rp/ale')                           " linting
 call minpac#add('morhetz/gruvbox')                    " color scheme
-call minpac#add('fatih/vim-go')
+call minpac#add('fatih/vim-go')                       " golang support
+call minpac#add('tpope/vim-abolish')                  " case transformations
 
 " ============================== MINPAC
 function! MinpacReset()
@@ -55,9 +55,6 @@ set statusline+=%=[line:\ %l/%L][col:\ %03c]
 filetype plugin indent on
 syntax on
 
-" vim-go
-" let g:go_fmt_command = "goimports"
-
 " colorscheme
 let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_contrast_light="hard"
@@ -71,6 +68,8 @@ set autoread
 set autowrite
 set background=dark
 set backspace=indent,eol,start
+set backupdir=/home/keith/nvimbackup
+set backupcopy=yes
 set clipboard^=unnamedplus
 set colorcolumn=120
 set expandtab
@@ -167,9 +166,6 @@ nnoremap ,x :only<CR>
 nnoremap ,cc :cclose<CR>
 
 " non-leader mappings ==========
-
-" terminal normal mode
-tnoremap <Esc> <C-\><C-n>
 
 " run make
 nnoremap <silent> <F5> :wa<CR>:silent make<CR>

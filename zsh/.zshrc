@@ -1,5 +1,5 @@
 # export some shit
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/.nvm/versions/node/v8.11.3/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin
 export TERM=xterm-256color
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin
 export GOPATH="$HOME/go"
@@ -40,6 +40,10 @@ eval "$(direnv hook zsh)"
 
 # linux shit
 if [[ `uname` == 'Linux' ]]; then
+  # this is better than setting reverse scroll in the settings ui
+  # on xfce, gnome apps do not respect the ui settings. this is deeper.
+  # synclient VertScrollDelta=-27
+  # i'd rather do this elsewhere, but this seems to work ok for now.
   setxkbmap -option caps:escape
 fi
 

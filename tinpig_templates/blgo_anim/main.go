@@ -7,22 +7,27 @@ import (
 	"github.com/bit101/blgo/util"
 )
 
-const timeInSeconds = 5
-const fps = 30
-const frames = timeInSeconds * fps
-const framesDir = "frames"
-const outFileName = "out.gif"
-const width = 400.0
-const height = 400.0
+const (
+	timeInSeconds = 5
+	fps           = 30
+	frames        = timeInSeconds * fps
+	framesDir     = "frames"
+	outFileName   = "out.gif"
+	width         = 400.0
+	height        = 400.0
+)
+
+var surface *blgo.Surface
 
 func main() {
-	animation := anim.NewAnimation(width, height, frames)
-	animation.Render(framesDir, "frame", render)
+	surface = blgo.NewSurface(width, height)
+	animation := anim.NewAnimation(surface, frames, framesDir)
+	animation.Render(render)
 	util.ConvertToGIF(framesDir, outFileName, fps)
 	util.ViewImage(outFileName)
 }
 
-func render(surface *blgo.Surface, percent float64) {
+func render(percent float64) {
 	surface.ClearRGB(1, 1, 1)
 	surface.SetSourceRGB(0, 0, 1)
 	for i := 0; i < 100; i++ {

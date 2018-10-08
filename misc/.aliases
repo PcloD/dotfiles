@@ -41,7 +41,7 @@ tmux_name_windows() {
 alias f="ranger"
 
 alias gdt="git difftool"
-alias gc="git commit -m "
+alias gcm="git commit -m "
 alias gpf="git push --force"
 alias gdno="git diff --name-only "
 
