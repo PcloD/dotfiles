@@ -26,8 +26,8 @@ alias vi="nvim"
 export FZF_DEFAULT_COMMAND="rg --files --follow --hidden"
 
 # rbenv shit
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 # vim binding shit
 bindkey -v 
@@ -37,15 +37,6 @@ export KEYTIMEOUT=1
 
 # direnv shit
 eval "$(direnv hook zsh)"
-
-# linux shit
-if [[ `uname` == 'Linux' ]]; then
-  # this is better than setting reverse scroll in the settings ui
-  # on xfce, gnome apps do not respect the ui settings. this is deeper.
-  # synclient VertScrollDelta=-27
-  # i'd rather do this elsewhere, but this seems to work ok for now.
-  setxkbmap -option caps:escape
-fi
 
 # notarize shit
 if [[ `uname` == 'Darwin' ]]; then
