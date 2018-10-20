@@ -1,42 +1,14 @@
 alias ll="ls -la"
-alias links="find . -maxdepth 1 -type l -ls" 
-alias tmuxx="tmux attach -t tmux || tmux new -s tmux"
-alias tmuxa="tmux attach -t "
-alias tmuxl="tmux list-sessions"
 alias ag="ag --path-to-ignore ~/.ignore"
-alias cr="cargo run"
-alias cb="cargo build"
-alias cbr="cargo build --release"
 alias sz="source ~/.zshrc"
 alias ez="vim ~/.zshrc"
 alias lp="fzf --preview='cat {}' --preview-window=right:70%:wrap +x"
-alias cdc="cd ; clear"
-alias ,q="exit"
-alias vm="ssh 127.0.0.1 -p 3022"
 alias sudovim="sudo -e"
 alias weather="curl wttr.in/boston"
 alias ypl="yarn --pure-lockfile"
-alias caps="setxkbmap -option caps:escape"
 
 # ignore stupid eog errors
 alias eog="eog 2>/dev/null "
-
-# tmux
-alias tmuxx="tmux attach -t main || tmux new -s main"
-alias tmuxnames="tmux_name_windows"
-
-install_bitlib() {
-  go get github.com/ungerik/go-cairo
-  go get github.com/bit101/bitlibgo
-}
-
-tmux_name_windows() {
-  tmux rename-window -t 0 "web-zsh"
-  tmux rename-window -t 1 "web-vim"
-  tmux rename-window -t 2 "api-zsh"
-  tmux rename-window -t 3 "api-vim"
-  tmux rename-window -t 4 "misc"
-}
 
 alias f="ranger"
 
@@ -45,18 +17,4 @@ alias gcm="git commit -m "
 alias gpf="git push --force"
 alias gdno="git diff --name-only "
 
-toggle_repeat() {
-  if [[ -z "${XSET_R_STATE}" ]]; then
-    XSET_R_STATE="ON"
-    xset r on
-  elif [[ "$XSET_R_STATE" == "OFF" ]]; then
-    XSET_R_STATE="ON"
-    xset r on
-  else
-    XSET_R_STATE="OFF"
-    xset r off
-  fi
-}
-
-alias hexo_drafts="ag title source/_drafts --no-filename"
 
