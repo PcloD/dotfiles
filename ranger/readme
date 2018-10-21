@@ -1,0 +1,5 @@
+1. install ranger
+
+  `sudo apt install ranger`
+
+2. run `install.sh` to create symlinks for `rc.conf` and `rifle.conf`
