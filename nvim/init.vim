@@ -61,6 +61,8 @@ let g:gruvbox_contrast_light="hard"
 colorscheme gruvbox
 
 " vim-go
+" remove once 0.3.1 is available and installed. currently stuck on 0.3.0
+let g:go_version_warning=0
 let g:go_fmt_command = "goimports"
 
 set autoindent
@@ -76,6 +78,7 @@ set expandtab
 set hidden
 set hlsearch
 set ignorecase
+set inccommand=split
 set incsearch
 set laststatus=2
 set linebreak
@@ -129,7 +132,7 @@ nnoremap ,ev :e ~/.config/nvim/init.vim<CR>
 nnoremap ,sv :so ~/.config/nvim/init.vim<CR>
 
 " find and replace word
-nnoremap ,fr :%s//g<Left><Left>
+nnoremap ,fr :%s/
 " find file
 nnoremap ,ff :Files<CR>
 " find fuzzy
