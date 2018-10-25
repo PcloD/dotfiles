@@ -44,7 +44,3 @@ if [[ `uname` == 'Darwin' ]]; then
   [ -f ~/.notarize_aliases ] && source ~/.notarize_aliases
   export PGDATA="/usr/local/pgsql/data"
 fi
-
-if ! {[ -n "$TMUX" ];} then
-  tmux new -A -s default
-fi
