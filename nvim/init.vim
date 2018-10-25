@@ -70,7 +70,7 @@ set autoread
 set autowrite
 set background=dark
 set backspace=indent,eol,start
-set backupdir=/home/keith/nvimbackup
+set backupdir=~/nvimbackup
 set backupcopy=yes
 set clipboard^=unnamedplus
 set colorcolumn=120
