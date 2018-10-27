@@ -1,0 +1,14 @@
+#include ".urxvt/gruvbox-dark.xresources"
+
+! -----------------------------------------------------------------------------
+! URXVT config
+! -----------------------------------------------------------------------------
+URxvt.iconFile: /usr/share/icons/Humanity/apps/32/terminal.svg
+URxvt.geometry: 200x55
+URxvt.font: xft:DejaVu Sans Mono:pixelsize=16
+URxvt.scrollBar: false
+URxvt.cursorColor: #ffcc00
+URxvt.perl-ext-common: fullscreen,resize-font
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.iso14755: false
+URxvt.letterSpace: -1
