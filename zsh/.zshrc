@@ -1,7 +1,7 @@
 # export some shit
-export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/.local/bin:$HOME/jdk1.8.0_191/bin
 # export TERM=xterm-256color
-export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64/bin
+export JAVA_HOME="$HOME/jdk1.8.0_191"
 export GOPATH="$HOME/go"
 
 # antigen some shit
